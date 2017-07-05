@@ -1,8 +1,14 @@
-# web-dev-template
+# Northeastern CS4550 Web Development
 
-1. git clone https://github.com/jannunzi/web-dev-template.git
-1. cd web-dev-template
-1. npm install
-1. mongod
-1. node server.js
-1. browse to localhost:3000
+## About Me
+
+Hi, I'm Daniel Chu and I am currently finishing up my second year as an undergraduate at Northeastern University. I have gained some experience with web development through my first co-op at PowerAdvocate, as well as an online workout tracker I created as a personal project for practice. However I have never taken a formal course on this before and hope I can take away a lot from this course.
+
+
+## Purpose
+This repository was created as part of the web dev course requirements, so professors and TAs may look at the work I am doing.
+
+## Links
+* [Hosted Environment](https://chu-daniel-webdev.herokuapp.com/)
+* [Project](placeholder)
+* [Assignment](placeholder)
