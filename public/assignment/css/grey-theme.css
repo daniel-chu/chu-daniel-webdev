@@ -1,5 +1,5 @@
-.navbar-fixed-top a > span {
-    color: #40454a;
+.navbar-default {
+    background: #f4f0ef;
 }
 
 .navbar-default .navbar-brand,
@@ -12,6 +12,11 @@
     color: #3498db;
 }
 
-.navbar-default {
-    background: #f4f0ef;
+.navbar-fixed-bottom .navbar-text.pull-left > span {
+    padding: 5px;
+}
+
+.navbar-fixed-bottom .navbar-text.pull-left > span,
+.navbar-fixed-top a > span {
+    color: #40454a;
 }

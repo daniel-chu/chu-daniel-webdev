@@ -1,11 +1,11 @@
-.navbar-fixed-top a > span,
-.navbar-fixed-bottom a > span,
-.navbar-default .navbar-brand,
-.navbar-default .navbar-brand:focus,
-.navbar-default .navbar-brand:hover {
-    color: white;
-}
-
 .navbar-default {
     background: #3498db;
+}
+
+.navbar-default .navbar-brand,
+.navbar-default .navbar-brand:focus,
+.navbar-default .navbar-brand:hover,
+.navbar-fixed-top a > span,
+.navbar-fixed-bottom a > span {
+    color: white;
 }
