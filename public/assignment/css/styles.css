@@ -1,0 +1,51 @@
+body {
+    padding-top: 60px;
+}
+
+input {
+    margin-bottom: 5px;
+}
+
+.button-container {
+    margin-top: 10px;
+}
+
+.dc-white-text,
+.navbar-default .navbar-brand {
+    color: white;
+}
+
+.navbar-default {
+    background: #3498db;
+    padding-right: 15px;
+}
+
+@media (min-width: 768px) {
+    .container-fluid > .navbar-collapse,
+    .container-fluid > .navbar-header,
+    .container > .navbar-collapse,
+    .container > .navbar-header {
+        margin-right: 0;
+        margin-left: 0;
+        width: 100%;
+    }
+}
+
+@media (min-width: 1200px) {
+    .col-lg-3.dc-split-view-left {
+        position: absolute;
+        top: 60px;
+        bottom: 0px;
+        z-index: 1;
+        overflow-y: scroll;
+    }
+
+    .col-lg-9.dc-split-view-right {
+        position: absolute;
+        width: 75%;
+        right: 0px;
+        top: 60px;
+        bottom: 0px;
+        overflow-y: scroll;
+    }
+}
