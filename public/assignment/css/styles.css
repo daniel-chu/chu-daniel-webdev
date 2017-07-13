@@ -2,6 +2,10 @@ body {
     padding-top: 60px;
 }
 
+a:hover {
+    text-decoration: none;
+}
+
 input {
     margin-bottom: 5px;
 }
@@ -17,14 +21,11 @@ input {
 
 .navbar-default {
     background: #3498db;
-    padding-right: 15px;
+    padding: 0 10px;
 }
 
 @media (min-width: 768px) {
-    .container-fluid > .navbar-collapse,
-    .container-fluid > .navbar-header,
-    .container > .navbar-collapse,
-    .container > .navbar-header {
+    .navbar-header {
         margin-right: 0;
         margin-left: 0;
         width: 100%;
@@ -33,11 +34,13 @@ input {
 
 @media (min-width: 1200px) {
     .col-lg-3.dc-split-view-left {
+        padding-top: 50px;
         position: absolute;
-        top: 60px;
+        top: 10px;
         bottom: 0px;
         z-index: 1;
         overflow-y: scroll;
+        border-right: 1px solid lightgray;
     }
 
     .col-lg-9.dc-split-view-right {
@@ -47,5 +50,11 @@ input {
         top: 60px;
         bottom: 0px;
         overflow-y: scroll;
+    }
+
+    .dc-split-view-left > .list-group,
+    .dc-split-view-left > .list-group > .list-group-item {
+        box-shadow: none;
+        border: none;
     }
 }
