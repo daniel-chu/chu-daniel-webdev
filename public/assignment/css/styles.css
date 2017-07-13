@@ -1,5 +1,6 @@
 body {
     padding-top: 60px;
+    padding-bottom: 40px;
 }
 
 a:hover {
@@ -17,6 +18,12 @@ input {
 .dc-white-text,
 .navbar-default .navbar-brand {
     color: white;
+}
+
+.list-group,
+.list-group > .list-group-item {
+    box-shadow: none;
+    border: none;
 }
 
 .navbar-default {
@@ -50,11 +57,5 @@ input {
         top: 60px;
         bottom: 0px;
         overflow-y: scroll;
-    }
-
-    .dc-split-view-left > .list-group,
-    .dc-split-view-left > .list-group > .list-group-item {
-        box-shadow: none;
-        border: none;
     }
 }
