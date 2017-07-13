@@ -1,6 +1,9 @@
-.navbar-fixed-top a > span,
+.navbar-fixed-top a > span {
+    color: #40454a;
+}
+
 .navbar-default .navbar-brand {
-    color: #5b636a;
+    color: #666d75;
 }
 
 .navbar-fixed-bottom a > span {
@@ -8,5 +11,5 @@
 }
 
 .navbar-default {
-    background: #fdfcef;
+    background: #f4f0ef;
 }
