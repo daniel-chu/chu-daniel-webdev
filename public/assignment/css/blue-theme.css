@@ -1,5 +1,5 @@
-.dc-top-navbar-text,
-.dc-bottom-navbar-text,
+.navbar-fixed-top a > span,
+.navbar-fixed-bottom a > span,
 .navbar-default .navbar-brand {
     color: white;
 }

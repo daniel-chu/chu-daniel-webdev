@@ -1,9 +1,9 @@
-.dc-top-navbar-text,
+.navbar-fixed-top a > span,
 .navbar-default .navbar-brand {
     color: #5b636a;
 }
 
-.dc-bottom-navbar-text {
+.navbar-fixed-bottom a > span {
     color: #3498db;
 }
 
