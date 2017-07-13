@@ -2,7 +2,9 @@
     color: #40454a;
 }
 
-.navbar-default .navbar-brand {
+.navbar-default .navbar-brand,
+.navbar-default .navbar-brand:focus,
+.navbar-default .navbar-brand:hover {
     color: #666d75;
 }
 

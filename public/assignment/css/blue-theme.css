@@ -1,6 +1,8 @@
 .navbar-fixed-top a > span,
 .navbar-fixed-bottom a > span,
-.navbar-default .navbar-brand {
+.navbar-default .navbar-brand,
+.navbar-default .navbar-brand:focus,
+.navbar-default .navbar-brand:hover {
     color: white;
 }
 
