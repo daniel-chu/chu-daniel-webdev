@@ -24,10 +24,6 @@ input {
     margin-top: 10px;
 }
 
-.dc-disable-click {
-    pointer-events: none;
-}
-
 .dc-widget-container {
     width: auto;
     position: relative;
@@ -47,6 +43,7 @@ input {
     padding: 5px;
     background-color: white;
     border-bottom-left-radius: 7px;
+    margin-top: -1px;
 }
 
 .list-group,
@@ -72,15 +69,7 @@ input {
     height: 100%;
 }
 
-@media (min-width: 768px) {
-    .navbar-header {
-        margin-right: 0;
-        margin-left: 0;
-        width: 100%;
-    }
-}
-
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     .navbar-default {
         padding: 0 30px 0 20px;
     }
@@ -89,7 +78,14 @@ input {
     .dc-split-view-right-header {
         padding: 0px;
     }
+}
 
+@media (min-width: 768px) {
+    .navbar-header {
+        margin-right: 0;
+        margin-left: 0;
+        width: 100%;
+    }
 }
 
 @media (min-width: 1200px) {
