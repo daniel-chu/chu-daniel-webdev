@@ -37,6 +37,12 @@ input {
     .navbar-default {
         padding: 0 30px 0 20px;
     }
+
+    .dc-split-view-left-header,
+    .dc-split-view-right-header {
+        padding: 0px;
+    }
+
 }
 
 @media (min-width: 1200px) {
