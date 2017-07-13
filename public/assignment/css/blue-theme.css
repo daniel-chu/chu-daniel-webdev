@@ -1,0 +1,9 @@
+.dc-top-navbar-text,
+.dc-bottom-navbar-text,
+.navbar-default .navbar-brand {
+    color: white;
+}
+
+.navbar-default {
+    background: #3498db;
+}
