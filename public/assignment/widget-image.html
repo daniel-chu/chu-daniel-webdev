@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <title>Widget Edit - Heading</title>
+    <title>Widget Edit - Image</title>
     <link href="../vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="../vendor/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
@@ -18,7 +18,7 @@
                         <span class="glyphicon glyphicon-chevron-left"></span>
                     </a>
                 </div>
-                <a class="navbar-brand" href="#">Widget Edit - Heading</a>
+                <a class="navbar-brand" href="#">Widget Edit - Image</a>
                 <div class="navbar-text pull-right">
                     <a class="navbar-link" href="widget-list.html">
                         <span class="glyphicon glyphicon-ok"></span>
@@ -39,16 +39,28 @@
         <input id="text"
                name="text"
                class="form-control"
-               placeholder="Widget Text"
-               value="US Senate Reaches Compromise on Emergency Zika Funding"/>
+               placeholder="Widget Text"/>
 
-        <label for="size">Size</label>
-        <input id="size"
-               name="size"
-               type="number"
+        <label for="url">URL</label>
+        <input id="url"
+               name="url"
                class="form-control"
-               placeholder="Widget Size"
-               value="3"/>
+               placeholder="Widget URL"
+               value="https://i.kinja-img.com/gawker-media/image/upload/s--47gmJqRi--/c_scale,fl_progressive,q_80,w_800/dw3l4m5ulgn6qqlhr7om.png"/>
+
+        <label for="width">Width</label>
+        <input id="width"
+               name="width"
+               class="form-control"
+               placeholder="Widget Width"
+               value="100%"/>
+
+        <label for="upload">Upload</label>
+        <input id="upload"
+               name="upload"
+               type="file"
+               class="form-control"
+               placeholder="Widget Width"/>
 
         <div class="button-container">
             <a class="btn btn-block btn-danger"
