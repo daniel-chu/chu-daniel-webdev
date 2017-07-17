@@ -88,8 +88,8 @@ input {
     }
 }
 
-@media (min-width: 1200px) {
-    .col-lg-3.dc-split-view-left {
+@media (min-width: 992px) {
+    .col-md-3.dc-split-view-left {
         padding-top: 50px;
         position: absolute;
         top: 10px;
@@ -99,7 +99,7 @@ input {
         border-right: 1px solid lightgray;
     }
 
-    .col-lg-9.dc-split-view-right {
+    .col-md-9.dc-split-view-right {
         position: absolute;
         width: 75%;
         right: 0px;
