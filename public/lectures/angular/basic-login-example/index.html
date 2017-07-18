@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="WamApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>Login</title>
+    <script src="../../../vendor/angular/angular.js"></script>
+    <script src="app.js"></script>
+    <link href="../../../vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../../vendor/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container-fluid">
+        <div ng-controller="loginController">
+            <h1>Login</h1>
+
+            <div ng-show="welcomeUser" class="alert alert-info">
+                Welcome Back {{welcomeUser.username}}
+            </div>
+
+            <input id="username"
+                   name="username"
+                   ng-model="user.username"
+                   class="form-control"
+                   placeholder="username"/>
+
+            <input id="password"
+                   name="password"
+                   ng-model="user.password"
+                   type="password"
+                   class="form-control"
+                   placeholder="password"/>
+
+            <div class="dc-button-container">
+                <a class="btn btn-block btn-primary"
+                   ng-click = "login(user)"
+                   role="button">Login</a>
+
+                <a class="btn btn-block btn-success"
+                   href="register.html"
+                   role="button">Register</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
