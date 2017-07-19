@@ -9,7 +9,7 @@
         vm.createWebsite = createWebsite;
 
         function createWebsite(website) {
-            if (!(website || website.name)) {
+            if (!(website && website.name)) {
                 vm.alert = "Website must have a name.";
                 return;
             }
