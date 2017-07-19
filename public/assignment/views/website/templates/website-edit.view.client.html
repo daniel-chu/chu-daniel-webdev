@@ -57,6 +57,8 @@
         </div>
 
         <div class="col-xs-12 col-md-9 dc-split-view-right">
+            <div ng-show="model.alert" class="alert alert-danger">{{model.alert}}</div>
+
             <label for="name">Name</label>
             <input id="name"
                    ng-model="model.website.name"
