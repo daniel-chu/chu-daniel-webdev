@@ -38,6 +38,10 @@
                 return false;
             }
 
+            if (username.trim().length === 0) {
+                vm.alert = "Username cannot be empty space.";
+            }
+
             if (userService.findUserByUsername(username)) {
                 vm.alert = "Username already taken."
                 return false;

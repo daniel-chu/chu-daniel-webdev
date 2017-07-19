@@ -1,9 +1,9 @@
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand" href="#">Profile</a>
+            <a class="navbar-brand" href="">Profile</a>
             <div class="navbar-text pull-right">
-                <a class="navbar-link" href="#!/user/:uid">
+                <a class="navbar-link" ng-click="model.updateProfile(model.user)">
                     <span class="glyphicon glyphicon-ok"></span>
                 </a>
             </div>
@@ -12,6 +12,9 @@
 </nav>
 
 <div class="container-fluid">
+    <div ng-show="model.alert" class="alert alert-danger">{{model.alert}}</div>
+    <div ng-show="model.info" class="alert alert-info">{{model.info}}</div>
+
     <label for="username">Username</label>
     <input id="username"
            ng-model="model.user.username"
@@ -47,7 +50,7 @@
 
     <div class="dc-button-container">
         <a class="btn btn-block btn-primary"
-           href="#!/user/:uid/website"
+           href="#!/user/{{model.userId}}/website"
            role="button">Websites</a>
 
         <a class="btn btn-block btn-danger"
@@ -60,7 +63,7 @@
     <div class="container-fluid">
         <div class="navbar-header">
             <div class="navbar-text pull-right">
-                <a class="navbar-link" href="#!/user/:uid">
+                <a class="navbar-link" href="#!/user/{{model.userId}}">
                     <span class="glyphicon glyphicon-user"></span>
                 </a>
             </div>
