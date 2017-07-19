@@ -17,7 +17,7 @@
             if (user) {
                 $location.url('/user/' + user._id);
             } else {
-                vm.alert = "Invalid username/password";
+                vm.alert = 'Invalid username/password';
             }
         }
     }

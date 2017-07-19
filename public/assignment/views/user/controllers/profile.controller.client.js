@@ -9,18 +9,17 @@
         vm.updateProfile = updateProfile;
 
         function updateProfile(user) {
-            if (!(user && user.username)) {
-                vm.info = "";
-                vm.alert = "You must have a username.";
-            }
-            if (user.username.trim().length === 0) {
-                vm.info = "";
-                vm.alert = "Username cannot be empty space.";
+            if (!(user && user.username && user.username.trim().length === 0)) {
+                vm.info = '';
+                vm.alert = 'Invalid username.';
+            } else if (userService.findUserByUsername(user.username)) {
+                vm.info = '';
+                vm.alert = 'Username taken already.';
             }
             else {
                 userService.updateUser(vm.userId, user);
-                vm.alert = "";
-                vm.info = "Profile successfully updated.";
+                vm.alert = '';
+                vm.info = 'Profile successfully updated.';
             }
         }
 

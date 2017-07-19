@@ -23,7 +23,7 @@
 
         function isValidRegistrationInfo(userRegistrationInfo) {
             if (!userRegistrationInfo) {
-                vm.alert = "Please fill in fields.";
+                vm.alert = 'Please fill in fields.';
                 return false;
             }
             var username = userRegistrationInfo.username;
@@ -34,21 +34,21 @@
             var lastName = userRegistrationInfo.lastName;
 
             if (!(username && password && verifyPassword)) {
-                vm.alert = "Username, password, and verify password fields are required.";
+                vm.alert = 'Username, password, and verify password fields are required.';
                 return false;
             }
 
             if (username.trim().length === 0) {
-                vm.alert = "Username cannot be empty space.";
+                vm.alert = 'Username cannot be empty space.';
             }
 
             if (userService.findUserByUsername(username)) {
-                vm.alert = "Username already taken."
+                vm.alert = 'Username already taken.'
                 return false;
             }
 
             if (password !== verifyPassword) {
-                vm.alert = "Passwords do not match.";
+                vm.alert = 'Passwords do not match.';
                 return false;
             }
 
