@@ -2,13 +2,13 @@
     <div class="container-fluid">
         <div class="navbar-header">
             <div class="navbar-text pull-left">
-                <a class="navbar-link" href="#!/user/:uid">
+                <a class="navbar-link" href="#!/user/{{model.userId}}">
                     <span class="glyphicon glyphicon-chevron-left"></span>
                 </a>
             </div>
-            <a class="navbar-brand" href="#">Websites</a>
+            <a class="navbar-brand" href="">Websites</a>
             <div class="navbar-text pull-right">
-                <a class="navbar-link" href="#!/user/:uid/website/new">
+                <a class="navbar-link" href="#!/user/{{model.userId}}/website/new">
                     <span class="glyphicon glyphicon-plus"></span>
                 </a>
             </div>
@@ -18,15 +18,15 @@
 
 <div class="container-fluid">
     <ul class="list-group">
-        <li class="list-group-item" ng-repeat="website in model.websites">
+        <li class="list-group-item" ng-repeat="website in model.websiteList">
             <div class="row">
                 <div class="col-xs-10">
-                    <a href="#!/user/:uid/website/:wid/page">
+                    <a href="#!/user/{{model.userId}}/website/{{website._id}}/page">
                         {{website.name}}
                     </a>
                 </div>
                 <div class="col-xs-2">
-                    <a href="#!/user/:uid/website/:wid">
+                    <a href="#!/user/{{model.userId}}/website/{{website._id}}">
                         <span class="glyphicon glyphicon-cog pull-right"></span>
                     </a>
                 </div>
@@ -39,7 +39,7 @@
     <div class="container-fluid">
         <div class="navbar-header">
             <div class="navbar-text pull-right">
-                <a class="navbar-link" href="#!/user/:uid">
+                <a class="navbar-link" href="#!/user/{{model.userId}}">
                     <span class="glyphicon glyphicon-user"></span>
                 </a>
             </div>

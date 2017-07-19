@@ -11,21 +11,19 @@
         vm.deleteWebsite = deleteWebsite;
 
         function updateWebsite(website) {
-            websiteService.updateWebsite(vm.websiteId, website)
-                .then(function () {
-                    $location.url('/user/' + vm.userId + '/website');
-                });
+            websiteService.updateWebsite(vm.websiteId, website);
+            $location.url('/user/' + vm.userId + '/website');
         }
 
         function deleteWebsite() {
-            websiteService.deleteWebsite(vm.websiteId)
-                .then(function () {
-                    $location.url('/user/' + vm.userId + '/website');
-                });
+            websiteService.deleteWebsite(vm.websiteId);
+            $location.url('/user/' + vm.userId + '/website');
         }
 
         function init() {
-            vm.website = websiteService.findWebsiteById(vm.websiteId);
+            // TODO we are temporarily copying the object so we don't modify it directly while editing (only when saved)
+            vm.website = WebAppMakerUtil.shallowCopy(websiteService.findWebsiteById(vm.websiteId));
+            vm.websiteList = websiteService.findWebsitesByUser(vm.userId);
         }
 
         init();

@@ -4,6 +4,10 @@
         .factory("websiteService", websiteService);
 
     function websiteService() {
+        // temporary counter for id generation before we implement database. starts at 1000 because there are
+        // already some in the given websites array
+        var idCounter = 1000;
+
         var websites = [
             {"_id": "123", "name": "Facebook", "developerId": "456", "description": "Lorem"},
             {"_id": "234", "name": "Tweeter", "developerId": "456", "description": "Lorem"},
@@ -25,8 +29,10 @@
         return api;
 
         function createWebsite(userId, website) {
+            website._id = idCounter++;
             website.developerId = userId;
             websites.push(website);
+            return website;
         }
 
         function findWebsitesByUser(userId) {
@@ -58,12 +64,13 @@
                     websites[i] = website;
                 }
             }
+            return website;
         }
 
         function deleteWebsite(websiteId) {
             for (var i = 0; i < websites.length; i++) {
                 if (websites[i]._id == websiteId) {
-                    websites.splice(i, 1);
+                    return websites.splice(i, 1);
                 }
             }
         }
