@@ -1,21 +1,41 @@
 <div class="container-fluid">
+    <div ng-show="model.alert" class="alert alert-danger">{{model.alert}}</div>
     <h1>Register</h1>
 
     <input id="username"
-           ng-model="model.user.username"
+           ng-model="model.userRegistrationInfo.username"
            name="username"
            class="form-control"
            placeholder="username"/>
 
+    <input id="email"
+           ng-model="model.userRegistrationInfo.email"
+           name="email"
+           type="email"
+           class="form-control"
+           placeholder="email"/>
+
+    <input id="first-name"
+           ng-model="model.userRegistrationInfo.firstName"
+           name="first-name"
+           class="form-control"
+           placeholder="first name"/>
+
+    <input id="last-name"
+           ng-model="model.userRegistrationInfo.lastName"
+           name="last-name"
+           class="form-control"
+           placeholder="last name"/>
+
     <input id="password"
-           ng-model="model.user.password"
+           ng-model="model.userRegistrationInfo.password"
            name="password"
            type="password"
            class="form-control"
            placeholder="password"/>
 
     <input id="password-verify"
-           ng-model="model.user.passwordVerify"
+           ng-model="model.userRegistrationInfo.verifyPassword"
            name="password-verify"
            type="password"
            class="form-control"
@@ -23,8 +43,8 @@
 
     <div class="dc-button-container">
         <a class="btn btn-block btn-primary"
-           href="#!/user/:uid"
-           role="button">Register</a>
+           role="button"
+           ng-click="model.register(model.userRegistrationInfo)">Register</a>
 
         <a class="btn btn-block btn-danger"
            href="#!/login"

@@ -4,6 +4,10 @@
         .factory("userService", userService);
 
     function userService() {
+        // temporary counter for id generation before we implement database. starts at 1000 because there are
+        // already some in the given users array
+        var idCounter = 1000;
+
         var users = [
             {_id: "123", username: "alice", password: "alice", firstName: "Alice", lastName: "Wonder"},
             {_id: "234", username: "bob", password: "bob", firstName: "Bob", lastName: "Marley"},
@@ -23,7 +27,9 @@
         return api;
 
         function createUser(user) {
+            user._id = idCounter++;
             users.push(user);
+            return user;
         }
 
         function findUserById(userId) {
@@ -67,12 +73,13 @@
                     users[i] = user;
                 }
             }
+            return user;
         }
 
         function deleteUser(userId) {
             for (var i = 0; i < users.length; i++) {
                 if (users[i]._id == userId) {
-                    users.splice(i, 1);
+                    return users.splice(i, 1)[0];
                 }
             }
         }
