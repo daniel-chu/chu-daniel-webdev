@@ -26,16 +26,9 @@
         function init() {
             var user = userService.findUserById(vm.userId);
 
-            // TODO temporarily doing this to avoid modifying the user object in the users array directly while editing
-            // without saving. Will remove when we remove the users array in userService
+            // TODO we are temporarily copying the object so we don't modify it directly while editing (only when saved)
             if (user) {
-                vm.user = {
-                    _id: user._id,
-                    username: user.username,
-                    firstName: user.firstName,
-                    lastName: user.lastName,
-                    email: user.email,
-                }
+                vm.user = WebAppMakerUtil.shallowCopy(user)
             } else {
                 vm.user = undefined;
             }
