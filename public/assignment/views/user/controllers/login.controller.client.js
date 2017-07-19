@@ -1,4 +1,4 @@
-(function() {
+(function () {
     angular
         .module('WebAppMaker')
         .controller('loginController', loginController);
@@ -7,16 +7,19 @@
         var vm = this;
         vm.login = login;
 
-        function login(user) {
-            user = userService.findUserByCredentials(user.username, user.password);
-            if(user) {
+        function login(userLoginInfo) {
+            var user;
+
+            if (userLoginInfo && userLoginInfo.username && userLoginInfo.password) {
+                user = userService.findUserByCredentials(userLoginInfo.username, userLoginInfo.password);
+            }
+
+            if (user) {
                 $location.url('/user/' + user._id);
             } else {
                 vm.alert = "Unable to login.";
             }
         }
-
-
     }
 
 })();
