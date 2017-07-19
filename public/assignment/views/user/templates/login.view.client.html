@@ -2,11 +2,13 @@
     <h1>Login</h1>
 
     <input id="username"
+           ng-model="model.user.username"
            name="username"
            class="form-control"
            placeholder="username"/>
 
     <input id="password"
+           ng-model="model.user.password"
            name="password"
            type="password"
            class="form-control"
@@ -14,11 +16,11 @@
 
     <div class="dc-button-container">
         <a class="btn btn-block btn-primary"
-           href="#/user/:uid"
-           role="button">Login</a>
+           role="button"
+           ng-click="model.login(model.user)">Login</a>
 
         <a class="btn btn-block btn-success"
-           href="#/register"
+           href="#!/register"
            role="button">Register</a>
     </div>
 </div>

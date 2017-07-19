@@ -11,8 +11,6 @@
             {_id: "456", username: "jannunzi", password: "jannunzi", firstName: "Jose", lastName: "Annunzi"}
         ];
 
-        // TODO ASK ABOUT STYLING, WHERE TO PUT HELPER FUNCTIONS
-
         var api = {
             createUser: createUser,
             findUserById: findUserById,

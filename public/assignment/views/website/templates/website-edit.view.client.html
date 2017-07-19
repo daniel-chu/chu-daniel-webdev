@@ -4,13 +4,13 @@
             <div class="col-md-3 visible-lg visible-md dc-split-view-left-header">
                 <div class="navbar-header">
                     <div class="navbar-text pull-left">
-                        <a class="navbar-link" href="#/user/:uid/website/:wid/page">
+                        <a class="navbar-link" href="#!/user/:uid/website">
                             <span class="glyphicon glyphicon-chevron-left"></span>
                         </a>
                     </div>
-                    <a class="navbar-brand" href="#">Pages</a>
+                    <a class="navbar-brand" href="#">Websites</a>
                     <div class="navbar-text pull-right">
-                        <a class="navbar-link" href="#/user/:uid/website/:wid/page/new">
+                        <a class="navbar-link" href="#!/user/:uid/website/new">
                             <span class="glyphicon glyphicon-plus"></span>
                         </a>
                     </div>
@@ -19,13 +19,13 @@
             <div class="col-xs-12 col-md-9 dc-split-view-right-header">
                 <div class="navbar-header">
                     <div class="navbar-text pull-left hidden-lg hidden-md">
-                        <a class="navbar-link" href="#/user/:uid/website/:wid/page">
+                        <a class="navbar-link" href="#!/user/:uid/website">
                             <span class="glyphicon glyphicon-chevron-left"></span>
                         </a>
                     </div>
-                    <a class="navbar-brand" href="#">New Page</a>
+                    <a class="navbar-brand" href="#">Edit Website</a>
                     <div class="navbar-text pull-right">
-                        <a class="navbar-link" href="#/user/:uid/website/:wid/page">
+                        <a class="navbar-link" ng-click="model.updateWebsite(model.website)">
                             <span class="glyphicon glyphicon-ok"></span>
                         </a>
                     </div>
@@ -42,62 +42,54 @@
                 <li class="list-group-item">
                     <div class="row">
                         <div class="col-xs-10">
-                            <a href="#/user/:uid/website/:wid/page/:pid/widget">Blog Post</a>
+                            <a href="#!/user/:uid/website/:wid/page">
+                                Wikipedia
+                            </a>
                         </div>
                         <div class="col-xs-2">
-                            <a href="#/user/:uid/website/:wid/page/:pid">
+                            <a href="#!/user/:uid/website/:wid">
                                 <span class="glyphicon glyphicon-cog pull-right"></span>
                             </a>
                         </div>
                     </div>
                 </li>
-
                 <li class="list-group-item">
                     <div class="row">
                         <div class="col-xs-10">
-                            <a href="#/user/:uid/website/:wid/page/:pid/widget">Blogs</a>
+                            <a href="#!/user/:uid/website/:wid/page">
+                                Facebook
+                            </a>
                         </div>
                         <div class="col-xs-2">
-                            <a href="#/user/:uid/website/:wid/page/:pid">
+                            <a href="#!/user/:uid/website/:wid">
                                 <span class="glyphicon glyphicon-cog pull-right"></span>
                             </a>
                         </div>
                     </div>
                 </li>
-
                 <li class="list-group-item">
                     <div class="row">
                         <div class="col-xs-10">
-                            <a href="/user/:uid/website/:wid/page/:pid/widget">Home</a>
+                            <a href="#!/user/:uid/website/:wid/page">
+                                Twitter
+                            </a>
                         </div>
                         <div class="col-xs-2">
-                            <a href="#/user/:uid/website/:wid/page/:pid">
+                            <a href="#!/user/:uid/website/:wid">
                                 <span class="glyphicon glyphicon-cog pull-right"></span>
                             </a>
                         </div>
                     </div>
                 </li>
-
                 <li class="list-group-item">
                     <div class="row">
                         <div class="col-xs-10">
-                            <a href="/user/:uid/website/:wid/page/:pid/widget">About</a>
-                        </div>
-                        <div class="col-xs-2">
-                            <a href="#/user/:uid/website/:wid/page/:pid">
-                                <span class="glyphicon glyphicon-cog pull-right"></span>
+                            <a href="#!/user/:uid/website/:wid/page">
+                                Amazon
                             </a>
                         </div>
-                    </div>
-                </li>
-
-                <li class="list-group-item">
-                    <div class="row">
-                        <div class="col-xs-10">
-                            <a href="/user/:uid/website/:wid/page/:pid/widget">Contact Us</a>
-                        </div>
                         <div class="col-xs-2">
-                            <a href="#/user/:uid/website/:wid/page/:pid">
+                            <a href="#!/user/:uid/website/:wid">
                                 <span class="glyphicon glyphicon-cog pull-right"></span>
                             </a>
                         </div>
@@ -109,15 +101,25 @@
         <div class="col-xs-12 col-md-9 dc-split-view-right">
             <label for="name">Name</label>
             <input id="name"
+                   ng-model="model.website.name"
                    name="name"
                    class="form-control"
-                   placeholder="Page Name"/>
+                   placeholder="Website Name"
+                   value="Facebook"/>
 
-            <label for="title">Title</label>
-            <input id="title"
-                   name="title"
-                   class="form-control"
-                   placeholder="Page Title"/>
+            <label for="description">Description</label>
+            <textarea id="description"
+                      ng-model="model.website.description"
+                      name="description"
+                      class="form-control"
+                      rows="5"
+                      placeholder="Website Description">Facebook is a social networking website used around the world.</textarea>
+
+            <div class="dc-button-container">
+                <a class="btn btn-block btn-danger"
+                   role="button"
+                   ng-click="model.deleteWebsite()">Delete</a>
+            </div>
         </div>
     </div>
 </div>
@@ -126,7 +128,7 @@
     <div class="container-fluid">
         <div class="navbar-header">
             <div class="navbar-text pull-right">
-                <a class="navbar-link" href="#/user/:uid">
+                <a class="navbar-link" href="#!/user/:uid">
                     <span class="glyphicon glyphicon-user"></span>
                 </a>
             </div>

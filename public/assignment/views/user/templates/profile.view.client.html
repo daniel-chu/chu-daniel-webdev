@@ -3,7 +3,7 @@
         <div class="navbar-header">
             <a class="navbar-brand" href="#">Profile</a>
             <div class="navbar-text pull-right">
-                <a class="navbar-link" href="#/user/:uid">
+                <a class="navbar-link" href="#!/user/:uid">
                     <span class="glyphicon glyphicon-ok"></span>
                 </a>
             </div>
@@ -14,6 +14,7 @@
 <div class="container-fluid">
     <label for="username">Username</label>
     <input id="username"
+           ng-model="model.user.username"
            name="username"
            class="form-control"
            placeholder="username"
@@ -21,6 +22,7 @@
 
     <label for="email">Email</label>
     <input id="email"
+           ng-model="model.user.email"
            name="email"
            type="email"
            class="form-control"
@@ -29,6 +31,7 @@
 
     <label for="firstName">First Name</label>
     <input id="firstName"
+           ng-model="model.user.firstName"
            name="firstName"
            class="form-control"
            placeholder="first name"
@@ -36,6 +39,7 @@
 
     <label for="lastName">Last Name</label>
     <input id="lastName"
+           ng-model="model.user.lastName"
            name="lastName"
            class="form-control"
            placeholder="last name"
@@ -43,11 +47,11 @@
 
     <div class="dc-button-container">
         <a class="btn btn-block btn-primary"
-           href="#/user/:uid/website"
+           href="#!/user/:uid/website"
            role="button">Websites</a>
 
         <a class="btn btn-block btn-danger"
-           href="#/login"
+           href="#!/login"
            role="button">Logout</a>
     </div>
 </div>
@@ -56,7 +60,7 @@
     <div class="container-fluid">
         <div class="navbar-header">
             <div class="navbar-text pull-right">
-                <a class="navbar-link" href="#/user/:uid">
+                <a class="navbar-link" href="#!/user/:uid">
                     <span class="glyphicon glyphicon-user"></span>
                 </a>
             </div>

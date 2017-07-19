@@ -2,17 +2,20 @@
     <h1>Register</h1>
 
     <input id="username"
+           ng-model="model.user.username"
            name="username"
            class="form-control"
            placeholder="username"/>
 
     <input id="password"
+           ng-model="model.user.password"
            name="password"
            type="password"
            class="form-control"
            placeholder="password"/>
 
     <input id="password-verify"
+           ng-model="model.user.passwordVerify"
            name="password-verify"
            type="password"
            class="form-control"
@@ -20,11 +23,11 @@
 
     <div class="dc-button-container">
         <a class="btn btn-block btn-primary"
-           href="#/user/:uid"
+           href="#!/user/:uid"
            role="button">Register</a>
 
         <a class="btn btn-block btn-danger"
-           href="#/login"
+           href="#!/login"
            role="button">Cancel</a>
     </div>
 </div>

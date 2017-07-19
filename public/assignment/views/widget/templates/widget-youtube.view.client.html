@@ -2,13 +2,13 @@
     <div class="container-fluid">
         <div class="navbar-header">
             <div class="navbar-text pull-left">
-                <a class="navbar-link" href="#/user/:uid/website/:wid/page/:pid/widget">
+                <a class="navbar-link" href="#!/user/:uid/website/:wid/page/:pid/widget">
                     <span class="glyphicon glyphicon-chevron-left"></span>
                 </a>
             </div>
-            <a class="navbar-brand" href="#">Widget Edit - Heading</a>
+            <a class="navbar-brand" href="#">Widget Edit - Youtube</a>
             <div class="navbar-text pull-right">
-                <a class="navbar-link" href="#/user/:uid/website/:wid/page/:pid/widget">
+                <a class="navbar-link" href="#!/user/:uid/website/:wid/page/:pid/widget">
                     <span class="glyphicon glyphicon-ok"></span>
                 </a>
             </div>
@@ -27,20 +27,24 @@
     <input id="text"
            name="text"
            class="form-control"
-           placeholder="Widget Text"
-           value="US Senate Reaches Compromise on Emergency Zika Funding"/>
+           placeholder="Widget Text"/>
 
-    <label for="size">Size</label>
-    <input id="size"
-           name="size"
-           type="number"
+    <label for="url">URL</label>
+    <input id="url"
+           name="url"
            class="form-control"
-           placeholder="Widget Size"
-           value="3"/>
+           placeholder="Widget URL"
+           value="https://youtu.be/uLWLashCXHE"/>
+
+    <label for="width">Width</label>
+    <input id="width"
+           name="width"
+           class="form-control"
+           placeholder="Widget Width"/>
 
     <div class="dc-button-container">
         <a class="btn btn-block btn-danger"
-           href="#/user/:uid/website/:wid/page/:pid/widget"
+           href="#!/user/:uid/website/:wid/page/:pid/widget"
            role="button">Delete</a>
     </div>
 </div>
@@ -49,7 +53,7 @@
     <div class="container-fluid">
         <div class="navbar-header">
             <div class="navbar-text pull-right">
-                <a class="navbar-link" href="#/user/:uid">
+                <a class="navbar-link" href="#!/user/:uid">
                     <span class="glyphicon glyphicon-user"></span>
                 </a>
             </div>
