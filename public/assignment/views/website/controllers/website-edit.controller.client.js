@@ -11,6 +11,10 @@
         vm.deleteWebsite = deleteWebsite;
 
         function updateWebsite(website) {
+            if (!(website || website.name)) {
+                vm.alert = "Website must have a name.";
+                return;
+            }
             websiteService.updateWebsite(vm.websiteId, website);
             $location.url('/user/' + vm.userId + '/website');
         }
