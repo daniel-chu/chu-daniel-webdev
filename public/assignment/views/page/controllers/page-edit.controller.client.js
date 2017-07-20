@@ -26,7 +26,7 @@
         }
 
         function init() {
-            vm.page = WebAppMakerUtil.shallowCopy(pageService.findPageById(vm.pageId));
+            vm.page = pageService.findPageById(vm.pageId);
             vm.pageList = pageService.findPagesByWebsiteId(vm.websiteId);
         }
 

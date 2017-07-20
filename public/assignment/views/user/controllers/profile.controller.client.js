@@ -9,29 +9,27 @@
         vm.updateProfile = updateProfile;
 
         function updateProfile(user) {
-            if (!(user && user.username && user.username.trim().length === 0)) {
+            if (!(user && user.username && user.username.trim().length > 0)) {
                 vm.info = '';
                 vm.alert = 'Invalid username.';
-            } else if (userService.findUserByUsername(user.username)) {
+                return;
+            }
+
+            var existingUser = userService.findUserByUsername(user.username);
+            if (existingUser && existingUser._id !== vm.userId) {
                 vm.info = '';
                 vm.alert = 'Username taken already.';
+                return;
             }
-            else {
-                userService.updateUser(vm.userId, user);
-                vm.alert = '';
-                vm.info = 'Profile successfully updated.';
-            }
+
+            userService.updateUser(vm.userId, user);
+            vm.alert = '';
+            vm.info = 'Profile successfully updated.';
+
         }
 
         function init() {
-            var user = userService.findUserById(vm.userId);
-
-            // TODO we are temporarily copying the object so we don't modify it directly while editing (only when saved)
-            if (user) {
-                vm.user = WebAppMakerUtil.shallowCopy(user)
-            } else {
-                vm.user = undefined;
-            }
+            vm.user = userService.findUserById(vm.userId);
         }
 
         init();

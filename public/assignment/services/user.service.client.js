@@ -60,7 +60,7 @@
             for (var i = 0; i < users.length; i++) {
                 var curUser = users[i];
                 if (predicateFn(curUser)) {
-                    return curUser;
+                    return angular.copy(curUser);
                 }
             }
 

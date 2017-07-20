@@ -47,7 +47,7 @@
         function findPageById(pageId) {
             for (var i = 0; i < pages.length; i++) {
                 if (pages[i]._id == pageId) {
-                    return pages[i];
+                    return angular.copy(pages[i]);
                 }
             }
 

@@ -26,11 +26,3 @@
     }
 
 })();
-
-// should we delegate to the service, no logic in controller?
-
-// validation, can we remove name and text?
-
-// where to put widgettypevalidators
-
-// width of youtube video?

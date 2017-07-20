@@ -25,8 +25,7 @@
         }
 
         function init() {
-            // TODO we are temporarily copying the object so we don't modify it directly while editing (only when saved)
-            vm.website = WebAppMakerUtil.shallowCopy(websiteService.findWebsiteById(vm.websiteId));
+            vm.website = websiteService.findWebsiteById(vm.websiteId);
             vm.websiteList = websiteService.findWebsitesByUser(vm.userId);
         }
 
