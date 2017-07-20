@@ -7,7 +7,9 @@
                     <span class="glyphicon glyphicon-chevron-left"></span>
                 </a>
             </div>
-            <a class="navbar-brand" href="">Widget Edit - Heading</a>
+            <a class="navbar-brand" href="">
+                Widget Edit - {{model.widget.widgetType}}
+            </a>
             <div class="navbar-text pull-right">
                 <a class="navbar-link" ng-click="model.updateWidget(model.widget)">
                     <span class="glyphicon glyphicon-ok"></span>
