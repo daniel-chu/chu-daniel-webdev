@@ -16,24 +16,24 @@
             var newWidget = widgetService.createWidget(vm.pageId, {
                 widgetType: 'HEADING'
             });
-            $location.url('/user/' + vm.userId + '/website/' + vm.websiteId + '/page/'
-                + vm.pageId + '/widget/' + newWidget._id);
+            $location.url('/user/' + vm.userId + '/website/' + vm.websiteId
+                + '/page/' + vm.pageId + '/widget/' + newWidget._id);
         }
 
         function createImageWidget() {
-            widgetService.createWidget(vm.pageId, {
+            var newWidget = widgetService.createWidget(vm.pageId, {
                 widgetType: 'IMAGE'
             });
-            $location.url('/user/' + vm.userId + '/website/' + vm.websiteId + '/page/'
-                + vm.pageId + '/widget/' + newWidget._id);
+            $location.url('/user/' + vm.userId + '/website/' + vm.websiteId
+                + '/page/' + vm.pageId + '/widget/' + newWidget._id);
         }
 
         function createYoutubeWidget() {
-            widgetService.createWidget(vm.pageId, {
+            var newWidget = widgetService.createWidget(vm.pageId, {
                 widgetType: 'YOUTUBE'
             });
-            $location.url('/user/' + vm.userId + '/website/' + vm.websiteId + '/page/'
-                + vm.pageId + '/widget/' + newWidget._id);
+            $location.url('/user/' + vm.userId + '/website/' + vm.websiteId
+            + '/page/' + vm.pageId + '/widget/' + newWidget._id);
         }
 
     }
