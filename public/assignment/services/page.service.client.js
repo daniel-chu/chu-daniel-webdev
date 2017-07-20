@@ -58,9 +58,9 @@
             for (var i = 0; i < pages.length; i++) {
                 if (pages[i]._id == pageId) {
                     pages[i] = page;
+                    return page;
                 }
             }
-            return page;
         }
 
         function deletePage(pageId) {

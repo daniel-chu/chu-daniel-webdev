@@ -62,9 +62,9 @@
             for (var i = 0; i < websites.length; i++) {
                 if (websites[i]._id == websiteId) {
                     websites[i] = website;
+                    return website;
                 }
             }
-            return website;
         }
 
         function deleteWebsite(websiteId) {
