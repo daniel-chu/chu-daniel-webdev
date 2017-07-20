@@ -2,13 +2,14 @@
     <div class="container-fluid">
         <div class="navbar-header">
             <div class="navbar-text pull-left">
-                <a class="navbar-link" href="#!/user/:uid/website/:wid/page">
+                <a class="navbar-link" href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page">
                     <span class="glyphicon glyphicon-chevron-left"></span>
                 </a>
             </div>
             <a class="navbar-brand" href="">Widgets</a>
             <div class="navbar-text pull-right">
-                <a class="navbar-link" href="#!/user/:uid/website/:wid/page/:pid/widget/new">
+                <a class="navbar-link"
+                   href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/new">
                     <span class="glyphicon glyphicon-plus"></span>
                 </a>
             </div>
@@ -17,80 +18,25 @@
 </nav>
 
 <div class="container-fluid">
-    <div class="dc-widget-container">
-        <h1>GIZMODO</h1>
+    <div class="dc-widget-container" ng-repeat="widget in model.widgetList">
+        <div ng-switch="widget.widgetType">
+            <div ng-switch-when="HEADING">
+                <ng-include src="'views/widget/templates/widgetTypes/widget-heading-render.view.client.html'">
+                </ng-include>
+            </div>
+            <div ng-switch-when="IMAGE">
+                <ng-include src="'views/widget/templates/widgetTypes/widget-image-render.view.client.html'">
+                </ng-include>
+            </div>
+            <div ng-switch-when="YOUTUBE">
+                <ng-include src="'views/widget/templates/widgetTypes/widget-youtube-render.view.client.html'">
+                </ng-include>
+            </div>
+        </div>
         <div class="dc-widget-button-overlay">
-            <a href="widget-heading.view.client.html">
+            <a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{widget._id}}">
                 <span class="glyphicon glyphicon-cog"></span>
             </a>
-            <span class="glyphicon glyphicon-menu-hamburger"></span>
-        </div>
-    </div>
-
-    <div class="dc-widget-container">
-        <h3>US Senate Reaches Compromise On Emergency Zika Funding</h3>
-        <div class="dc-widget-button-overlay">
-            <a href="widget-heading.view.client.html">
-                <span class="glyphicon glyphicon-cog"></span>
-            </a>
-            <span class="glyphicon glyphicon-menu-hamburger"></span>
-        </div>
-    </div>
-
-    <div class="dc-widget-container">
-        <img src="https://i.kinja-img.com/gawker-media/image/upload/s--47gmJqRi--/c_scale,fl_progressive,q_80,w_800/dw3l4m5ulgn6qqlhr7om.png"/>
-        <div class="dc-widget-button-overlay">
-            <a href="widget-image.view.client.html">
-                <span class="glyphicon glyphicon-cog"></span>
-            </a>
-            <span class="glyphicon glyphicon-menu-hamburger"></span>
-        </div>
-    </div>
-
-    <div class="dc-widget-container">
-        <p>
-            In February, the <span><a>White House formally asked Congress for $1.8 billion</a></span> dollars to
-            help combat the Zika Virus this summer. Now, the Senate has worked out a bipartisan deal that will
-            allocate $1.1 billion in emergency funding.
-        </p>
-        <div class="dc-widget-button-overlay">
-            <a><span class="glyphicon glyphicon-cog"></span></a>
-            <span class="glyphicon glyphicon-menu-hamburger"></span>
-        </div>
-    </div>
-
-    <div class="dc-widget-container">
-        <h3>Man in Wingsuit Flies Straight Through a Ring of Fire</h3>
-        <div class="dc-widget-button-overlay">
-            <a href="widget-heading.view.client.html">
-                <span class="glyphicon glyphicon-cog"></span>
-            </a>
-            <span class="glyphicon glyphicon-menu-hamburger"></span>
-        </div>
-    </div>
-
-    <div class="dc-widget-container">
-        <div class="video-container">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/uLWLashCXHE" frameborder="0"
-                    allowfullscreen></iframe>
-        </div>
-        <div class="dc-widget-button-overlay">
-            <a href="widget-youtube.view.client.html">
-                <span class="glyphicon glyphicon-cog"></span>
-            </a>
-            <span class="glyphicon glyphicon-menu-hamburger"></span>
-        </div>
-    </div>
-
-    <div class="dc-widget-container">
-        <p>
-            Flying in a wingsuit? That's just not enough anymore. Anyone could do that (I would never do that).
-            You have to make it more extreme, like by hitting a target while you're cutting through the air at
-            crazy speeds. Or by making that target a small ring that you have to somehow fly through. Or by
-            lighting that ring on fire. Or by... actually, that should be extreme enough for now.
-        </p>
-        <div class="dc-widget-button-overlay">
-            <a><span class="glyphicon glyphicon-cog"></span></a>
             <span class="glyphicon glyphicon-menu-hamburger"></span>
         </div>
     </div>
@@ -104,7 +50,7 @@
                 <span class="glyphicon glyphicon-eye-open"></span>
             </div>
             <div class="navbar-text pull-right">
-                <a class="navbar-link" href="#!/user/:uid">
+                <a class="navbar-link" href="#!/user/{{model.userId}}">
                     <span class="glyphicon glyphicon-user"></span>
                 </a>
             </div>

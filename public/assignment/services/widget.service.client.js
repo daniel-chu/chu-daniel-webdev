@@ -8,13 +8,15 @@
             {
                 "_id": "123",
                 "widgetType": "HEADING",
-                "pageId": "321", "size": 2,
+                "pageId": "321",
+                "size": 2,
                 "text": "GIZMODO"
             },
             {
                 "_id": "234",
                 "widgetType": "HEADING",
-                "pageId": "321", "size": 4,
+                "pageId": "321",
+                "size": 4,
                 "text": "Lorem ipsum"
             },
             {
@@ -33,7 +35,8 @@
             {
                 "_id": "567",
                 "widgetType": "HEADING",
-                "pageId": "321", "size": 4,
+                "pageId": "321",
+                "size": 4,
                 "text": "Lorem ipsum"
             },
             {

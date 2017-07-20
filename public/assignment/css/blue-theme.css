@@ -6,6 +6,7 @@
 .navbar-default .navbar-brand:focus,
 .navbar-default .navbar-brand:hover,
 .navbar-fixed-top a > span,
-.navbar-fixed-bottom a > span {
+.navbar-fixed-bottom a > span,
+.navbar-fixed-bottom .navbar-text.pull-left > span {
     color: white;
 }
