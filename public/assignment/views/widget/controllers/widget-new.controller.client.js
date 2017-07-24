@@ -8,9 +8,7 @@
         vm.userId = $routeParams['uid'];
         vm.websiteId = $routeParams['wid'];
         vm.pageId = $routeParams['pid'];
-        vm.createHeadingWidget = createHeadingWidget;
-        vm.createImageWidget = createImageWidget;
-        vm.createYoutubeWidget = createYoutubeWidget;
+        vm.createNewWidgetWithType = createNewWidgetWithType;
 
         function createNewWidgetWithType(widgetType) {
             var newWidget = widgetService.createWidget(vm.pageId, {
