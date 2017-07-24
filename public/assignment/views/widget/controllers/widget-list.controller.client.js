@@ -3,7 +3,7 @@
         .module('WebAppMaker')
         .controller('widgetListController', widgetListController);
 
-    function widgetListController($routeParams, widgetService) {
+    function widgetListController($routeParams, widgetService, $sce) {
         var vm = this;
         vm.userId = $routeParams['uid'];
         vm.websiteId = $routeParams['wid'];
@@ -14,8 +14,8 @@
             var embedBaseUrl = "https://www.youtube.com/embed/";
             var urlArray = youtubeUrl.split('/');
             var youtubeVideoCode = urlArray[urlArray.length - 1];
-            console.log(youtubeVideoCode);
-            return embedBaseUrl + youtubeVideoCode;
+        
+            return $sce.trustAsResourceUrl(embedBaseUrl + youtubeVideoCode);
         }
 
         function init() {

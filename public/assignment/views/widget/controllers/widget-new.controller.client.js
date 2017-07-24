@@ -38,6 +38,4 @@
 
     }
 
-    //TODO WIDGET-NEW NEEDS TO BE DONE
-
 })();
