@@ -12,25 +12,9 @@
         vm.createImageWidget = createImageWidget;
         vm.createYoutubeWidget = createYoutubeWidget;
 
-        function createHeadingWidget() {
+        function createNewWidgetWithType(widgetType) {
             var newWidget = widgetService.createWidget(vm.pageId, {
-                widgetType: 'HEADING'
-            });
-            $location.url('/user/' + vm.userId + '/website/' + vm.websiteId
-                + '/page/' + vm.pageId + '/widget/' + newWidget._id);
-        }
-
-        function createImageWidget() {
-            var newWidget = widgetService.createWidget(vm.pageId, {
-                widgetType: 'IMAGE'
-            });
-            $location.url('/user/' + vm.userId + '/website/' + vm.websiteId
-                + '/page/' + vm.pageId + '/widget/' + newWidget._id);
-        }
-
-        function createYoutubeWidget() {
-            var newWidget = widgetService.createWidget(vm.pageId, {
-                widgetType: 'YOUTUBE'
+                widgetType: widgetType
             });
             $location.url('/user/' + vm.userId + '/website/' + vm.websiteId
             + '/page/' + vm.pageId + '/widget/' + newWidget._id);

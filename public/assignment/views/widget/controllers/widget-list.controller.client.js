@@ -9,6 +9,7 @@
         vm.websiteId = $routeParams['wid'];
         vm.pageId = $routeParams['pid'];
         vm.convertYoutubeUrlToEmbedUrl = convertYoutubeUrlToEmbedUrl;
+        vm.trustHtml = trustHtml;
 
         function convertYoutubeUrlToEmbedUrl(youtubeUrl) {
             var embedBaseUrl = "https://www.youtube.com/embed/";
@@ -16,6 +17,10 @@
             var youtubeVideoCode = urlArray[urlArray.length - 1];
         
             return $sce.trustAsResourceUrl(embedBaseUrl + youtubeVideoCode);
+        }
+
+        function trustHtml(html) {
+            return $sce.trustAsHtml(html);
         }
 
         function init() {
