@@ -1,9 +1,6 @@
 <div class="video-container" width="{{widget.width}}">
     <iframe width="560" height="315"
-            ng-src="{{model.convertYoutubeUrlToEmbedUrl(widget.url)}}"
+            ng-src="{{model.trustUrl(model.convertYoutubeUrlToEmbedUrl(widget.url))}}"
             frameborder="0"
             allowfullscreen></iframe>
 </div>
-<!--TODO trusted source bug, wait til Monday-->
-<!-- src="{{model.convertYoutubeUrlToEmbedUrl(widget.url)}}" -->
-<!-- src="https://youtube.com/embed/AM2Ivdi9c4E" -->
