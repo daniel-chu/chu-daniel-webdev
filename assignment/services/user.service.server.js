@@ -48,7 +48,8 @@ function findUserById(req, res) {
     var userId = req.params.userId;
 
     var predicateFn = function(userToCheck) {
-        return userToCheck._id === userId;
+        return userToCheck._id == userId;
+        // TODO if allowed to just make all ids numbers and not strings
     };
 
     res.send(findUserMatchingPredicate(predicateFn));

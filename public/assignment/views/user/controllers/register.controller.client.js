@@ -1,4 +1,4 @@
-(function () {
+(function() {
     angular
         .module('WebAppMaker')
         .controller('registerController', registerController);
@@ -16,8 +16,14 @@
                     lastName: userRegistrationInfo.lastName,
                     email: userRegistrationInfo.email,
                 };
-                userService.createUser(user);
-                $location.url('/user/' + user._id);
+                userService.createUser(user).then(function(response) {
+                    user = response.data;
+                    if (user) {
+                        $location.url('/user/' + user._id);
+                    } else {
+                        vm.alert = "Error with registration.";
+                    }
+                });
             }
         }
 
@@ -42,10 +48,12 @@
                 vm.alert = 'Username cannot be empty space.';
             }
 
-            if (userService.findUserByUsername(username)) {
-                vm.alert = 'Username already taken.'
-                return false;
-            }
+            userService.findUserByUsername(username).then(function(response) {
+                if (response.data) {
+                    vm.alert = 'Username already taken.';
+                    return false;
+                }
+            });
 
             if (password !== verifyPassword) {
                 vm.alert = 'Passwords do not match.';

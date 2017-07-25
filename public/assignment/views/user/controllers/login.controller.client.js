@@ -1,4 +1,4 @@
-(function () {
+(function() {
     angular
         .module('WebAppMaker')
         .controller('loginController', loginController);
@@ -11,14 +11,18 @@
             var user;
 
             if (userLoginInfo && userLoginInfo.username && userLoginInfo.password) {
-                user = userService.findUserByCredentials(userLoginInfo.username, userLoginInfo.password);
+                userService.findUserByCredentials(userLoginInfo.username, userLoginInfo.password).then(function(response) {
+                    user = response.data;
+
+                    if (user) {
+                        $location.url('/user/' + user._id);
+                    } else {
+                        vm.alert = 'Invalid username/password';
+                    }
+                });
             }
 
-            if (user) {
-                $location.url('/user/' + user._id);
-            } else {
-                vm.alert = 'Invalid username/password';
-            }
+
         }
     }
 
