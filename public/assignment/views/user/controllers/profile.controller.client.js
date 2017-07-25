@@ -1,4 +1,4 @@
-(function () {
+(function() {
     angular
         .module('WebAppMaker')
         .controller('profileController', profileController);
@@ -15,21 +15,29 @@
                 return;
             }
 
-            var existingUser = userService.findUserByUsername(user.username);
-            if (existingUser && existingUser._id !== vm.userId) {
-                vm.info = '';
-                vm.alert = 'Username taken already.';
-                return;
-            }
+            var existingUser;
 
-            userService.updateUser(vm.userId, user);
-            vm.alert = '';
-            vm.info = 'Profile successfully updated.';
+            userService.findUserByUsername(user.username).then(function(response) {
+                existingUser = response.data;
 
+                if (existingUser && existingUser._id !== vm.userId) {
+                    vm.info = '';
+                    vm.alert = 'Username taken already.';
+                    return;
+                }
+
+                userService.updateUser(vm.userId, user).then(function(response) {
+                    vm.alert = '';
+                    vm.info = 'Profile successfully updated.';
+                });
+            });
         }
 
         function init() {
-            vm.user = userService.findUserById(vm.userId);
+            userService.findUserById(vm.userId)
+                .then(function(response) {
+                    vm.user = response.data;
+                });
         }
 
         init();
