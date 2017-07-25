@@ -1,4 +1,4 @@
-(function () {
+(function() {
     angular
         .module('WebAppMaker')
         .controller('websiteListController', websiteListController);
@@ -8,7 +8,9 @@
         vm.userId = $routeParams['uid'];
 
         function init() {
-            vm.websiteList = websiteService.findWebsitesByUser(vm.userId);
+            websiteService.findWebsitesByUser(vm.userId).then(function(response) {
+                vm.websiteList = response.data;
+            });
         }
 
         init();

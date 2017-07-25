@@ -1,4 +1,4 @@
-(function () {
+(function() {
     angular
         .module('WebAppMaker')
         .controller('editWebsiteController', editWebsiteController);
@@ -15,18 +15,34 @@
                 vm.alert = "Website must have a name.";
                 return;
             }
-            websiteService.updateWebsite(vm.websiteId, website);
-            $location.url('/user/' + vm.userId + '/website');
+
+            websiteService.updateWebsite(vm.websiteId, website).then(function(response) {
+                if (response.data) {
+                    $location.url('/user/' + vm.userId + '/website');
+                } else {
+                    vm.alert = "Error with deleting website.";
+                }
+            });
         }
 
         function deleteWebsite() {
-            websiteService.deleteWebsite(vm.websiteId);
-            $location.url('/user/' + vm.userId + '/website');
+            websiteService.deleteWebsite(vm.websiteId).then(function(response) {
+                if (response.data) {
+                    $location.url('/user/' + vm.userId + '/website');
+                } else {
+                    vm.alert = "Error with deleting website.";
+                }
+            });
         }
 
         function init() {
-            vm.website = websiteService.findWebsiteById(vm.websiteId);
-            vm.websiteList = websiteService.findWebsitesByUser(vm.userId);
+            websiteService.findWebsiteById(vm.websiteId).then(function(response) {
+                vm.website = response.data;
+            });
+
+            websiteService.findWebsitesByUser(vm.userId).then(function(response) {
+                vm.websiteList = response.data;
+            });
         }
 
         init();

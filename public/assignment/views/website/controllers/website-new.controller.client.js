@@ -1,4 +1,4 @@
-(function () {
+(function() {
     angular
         .module('WebAppMaker')
         .controller('newWebsiteController', newWebsiteController);
@@ -13,12 +13,19 @@
                 vm.alert = "Website must have a name.";
                 return;
             }
-            websiteService.createWebsite(vm.userId, website);
-            $location.url('/user/' + vm.userId + '/website');
+            websiteService.createWebsite(vm.userId, website).then(function(response) {
+                if (response.data) {
+                    $location.url('/user/' + vm.userId + '/website');
+                } else {
+                    vm.alert = "Error with creating website.";
+                }
+            });
         }
 
         function init() {
-            vm.websiteList = websiteService.findWebsitesByUser(vm.userId);
+            websiteService.findWebsitesByUser(vm.userId).then(function(response) {
+                vm.websiteList = response.data;
+            });
         }
 
         init();
