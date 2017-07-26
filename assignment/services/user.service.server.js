@@ -76,6 +76,7 @@ function updateUser(req, res) {
             return;
         }
     }
+
     res.send(null);
 }
 
@@ -88,5 +89,6 @@ function deleteUser(req, res) {
             return;
         }
     }
+    
     res.send(null);
 }

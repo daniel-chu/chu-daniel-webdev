@@ -50,6 +50,7 @@ function findPageById(req, res) {
             return;
         }
     }
+
     res.send(null);
 }
 
@@ -64,6 +65,7 @@ function updatePage(req, res) {
             return;
         }
     }
+
     res.send(null);
 }
 
@@ -76,5 +78,6 @@ function deletePage(req, res) {
             return;
         }
     }
+    
     res.send(null);
 }

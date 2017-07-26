@@ -55,7 +55,8 @@ function findWebsiteById(req, res) {
             return;
         }
     }
-    return null;
+
+    res.send(null);
 }
 
 function updateWebsite(req, res) {
@@ -69,6 +70,7 @@ function updateWebsite(req, res) {
             return;
         }
     }
+
     res.send(null);
 }
 
@@ -81,5 +83,6 @@ function deleteWebsite(req, res) {
             return;
         }
     }
+    
     res.send(null);
 }
