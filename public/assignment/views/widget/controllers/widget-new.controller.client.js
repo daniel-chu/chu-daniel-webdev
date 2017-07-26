@@ -11,11 +11,15 @@
         vm.createNewWidgetWithType = createNewWidgetWithType;
 
         function createNewWidgetWithType(widgetType) {
-            var newWidget = widgetService.createWidget(vm.pageId, {
+            widgetService.createWidget(vm.pageId, {
                 widgetType: widgetType
+            }).then(function(response) {
+                if (response.data) {
+                    var newWidget = response.data;
+                    $location.url('/user/' + vm.userId + '/website/' + vm.websiteId + '/page/'
+                        + vm.pageId + '/widget/' + newWidget._id);
+                }
             });
-            $location.url('/user/' + vm.userId + '/website/' + vm.websiteId
-            + '/page/' + vm.pageId + '/widget/' + newWidget._id);
         }
 
     }

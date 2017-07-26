@@ -1,4 +1,4 @@
-(function () {
+(function() {
     angular
         .module('WebAppMaker')
         .controller('widgetListController', widgetListController);
@@ -16,7 +16,7 @@
             var embedBaseUrl = "https://www.youtube.com/embed/";
             var urlArray = youtubeUrl.split('/');
             var youtubeVideoCode = urlArray[urlArray.length - 1];
-        
+
             return embedBaseUrl + youtubeVideoCode;
         }
 
@@ -29,7 +29,9 @@
         }
 
         function init() {
-            vm.widgetList = widgetService.findWidgetsByPageId(vm.pageId);
+            widgetService.findWidgetsByPageId(vm.pageId).then(function(response) {
+                vm.widgetList = response.data;
+            });
         }
 
         init();

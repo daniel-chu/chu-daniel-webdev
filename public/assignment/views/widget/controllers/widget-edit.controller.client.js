@@ -1,4 +1,4 @@
-(function () {
+(function() {
     angular
         .module('WebAppMaker')
         .controller('editWidgetController', editWidgetController);
@@ -13,17 +13,21 @@
         vm.deleteWidget = deleteWidget;
 
         function updateWidget(widget) {
-            widgetService.updateWidget(vm.widgetId, widget);
-            $location.url('/user/' + vm.userId + '/website/' + vm.websiteId + '/page/' + vm.pageId + '/widget');
+            widgetService.updateWidget(vm.widgetId, widget).then(function(response) {
+                $location.url('/user/' + vm.userId + '/website/' + vm.websiteId + '/page/' + vm.pageId + '/widget');
+            });
         }
 
         function deleteWidget() {
-            widgetService.deleteWidget(vm.widgetId);
-            $location.url('/user/' + vm.userId + '/website/' + vm.websiteId + '/page/' + vm.pageId + '/widget');
+            widgetService.deleteWidget(vm.widgetId).then(function(response) {
+                $location.url('/user/' + vm.userId + '/website/' + vm.websiteId + '/page/' + vm.pageId + '/widget');
+            });
         }
 
         function init() {
-            vm.widget = widgetService.findWidgetById(vm.widgetId);
+            widgetService.findWidgetById(vm.widgetId).then(function(response) {
+                vm.widget = response.data;
+            });
         }
 
         init();
