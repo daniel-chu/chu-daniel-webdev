@@ -20,7 +20,7 @@ app.delete('/api/user/:userId', deleteUser);
 function createUser(req, res) {
     var user = req.body.user;
 
-    user._id = idCounter++;
+    user._id = (idCounter++).toString();
     users.push(user);
 
     res.send(user);
@@ -48,8 +48,7 @@ function findUserById(req, res) {
     var userId = req.params.userId;
 
     var predicateFn = function(userToCheck) {
-        return userToCheck._id == userId;
-        // TODO if allowed to just make all ids numbers and not strings
+        return userToCheck._id === userId;
     };
 
     res.send(findUserMatchingPredicate(predicateFn));
@@ -71,7 +70,7 @@ function updateUser(req, res) {
     var user = req.body.user;
 
     for (var i = 0; i < users.length; i++) {
-        if (users[i]._id == userId) {
+        if (users[i]._id === userId) {
             users[i] = user;
             res.send(users[i]);
             return;
@@ -84,7 +83,7 @@ function deleteUser(req, res) {
     var userId = req.params.userId;
 
     for (var i = 0; i < users.length; i++) {
-        if (users[i]._id == userId) {
+        if (users[i]._id === userId) {
             res.send(users.splice(i, 1)[0]);
             return;
         }

@@ -24,7 +24,7 @@ function createWebsite(req, res) {
     var userId = req.params.userId;
     var website = req.body.website;
 
-    website._id = idCounter++;
+    website._id = (idCounter++).toString();
     website.developerId = userId;
     websites.push(website);
 
@@ -38,7 +38,7 @@ function findWebsitesByUser(req, res) {
 
     for (var i = 0; i < websites.length; i++) {
         var curWebsite = websites[i];
-        if (curWebsite.developerId == userId) {
+        if (curWebsite.developerId === userId) {
             usersWebsites.push(curWebsite);
         }
     }
@@ -50,7 +50,7 @@ function findWebsiteById(req, res) {
     var websiteId = req.params.websiteId;
 
     for (var i = 0; i < websites.length; i++) {
-        if (websites[i]._id == websiteId) {
+        if (websites[i]._id === websiteId) {
             res.send(websites[i]);
             return;
         }
@@ -63,7 +63,7 @@ function updateWebsite(req, res) {
     var website = req.body.website;
 
     for (var i = 0; i < websites.length; i++) {
-        if (websites[i]._id == websiteId) {
+        if (websites[i]._id === websiteId) {
             websites[i] = website;
             res.send(websites[i]);
             return;
@@ -76,7 +76,7 @@ function deleteWebsite(req, res) {
     var websiteId = req.params.websiteId;
 
     for (var i = 0; i < websites.length; i++) {
-        if (websites[i]._id == websiteId) {
+        if (websites[i]._id === websiteId) {
             res.send(websites.splice(i, 1));
             return;
         }
