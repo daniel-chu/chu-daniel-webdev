@@ -1,4 +1,4 @@
-(function () {
+(function() {
     angular
         .module('WebAppMaker')
         .controller('editPageController', editPageController);
@@ -16,18 +16,25 @@
                 vm.alert = "Page must have a name.";
                 return;
             }
-            pageService.updatePage(vm.pageId, page);
-            $location.url('/user/' + vm.userId + '/website/' + vm.websiteId + '/page');
+            pageService.updatePage(vm.pageId, page).then(function(response) {
+                $location.url('/user/' + vm.userId + '/website/' + vm.websiteId + '/page');
+            });
         }
 
         function deletePage() {
-            pageService.deletePage(vm.pageId);
-            $location.url('/user/' + vm.userId + '/website/' + vm.websiteId + '/page');
+            pageService.deletePage(vm.pageId).then(function(response) {
+                $location.url('/user/' + vm.userId + '/website/' + vm.websiteId + '/page');
+            });
         }
 
         function init() {
-            vm.page = pageService.findPageById(vm.pageId);
-            vm.pageList = pageService.findPagesByWebsiteId(vm.websiteId);
+            pageService.findPageById(vm.pageId).then(function(response) {
+                vm.page = response.data;
+            });
+
+            pageService.findPagesByWebsiteId(vm.websiteId).then(function(response) {
+                vm.pageList = response.data;
+            });
         }
 
         init();

@@ -1,4 +1,4 @@
-(function () {
+(function() {
     angular
         .module('WebAppMaker')
         .controller('pageListController', pageListController);
@@ -9,7 +9,9 @@
         vm.websiteId = $routeParams['wid'];
 
         function init() {
-            vm.pageList = pageService.findPagesByWebsiteId(vm.websiteId);
+            pageService.findPagesByWebsiteId(vm.websiteId).then(function(response) {
+                vm.pageList = response.data;
+            });
         }
 
         init();

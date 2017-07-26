@@ -1,4 +1,4 @@
-(function () {
+(function() {
     angular
         .module('WebAppMaker')
         .controller('newPageController', newPageController);
@@ -11,15 +11,22 @@
 
         function createPage(page) {
             if (!(page && page.name)) {
-                vm.alert = "Page must have a name.";
+                vm.alert = 'Page must have a name.';
                 return;
             }
-            pageService.createPage(vm.websiteId, page);
-            $location.url('/user/' + vm.userId + '/website/' + vm.websiteId + '/page');
+            pageService.createPage(vm.websiteId, page).then(function(response) {
+                if (response.data) {
+                    $location.url('/user/' + vm.userId + '/website/' + vm.websiteId + '/page');
+                } else {
+                    vm.alert = 'Error creating page.';
+                }
+            });
         }
 
         function init() {
-            vm.pageList = pageService.findPagesByWebsiteId(vm.websiteId);
+            pageService.findPagesByWebsiteId(vm.websiteId).then(function(response) {
+                vm.pageList = response.data;
+            });
         }
 
         init();
