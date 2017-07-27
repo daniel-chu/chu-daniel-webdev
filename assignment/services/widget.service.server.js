@@ -1,4 +1,6 @@
 var app = require('../../express');
+var multer = require('multer'); // npm install multer --save
+var upload = multer({ dest: __dirname + '/../../public/uploads' });
 
 // temporary counter for id generation before we implement database. starts at 1000 because there are
 // already some in the given websites array
@@ -52,6 +54,7 @@ app.put('/api/page/:pageId/widget', reorderWidget);
 app.get('/api/widget/:widgetId', findWidgetById);
 app.put('/api/widget/:widgetId', updateWidget);
 app.delete('/api/widget/:widgetId', deleteWidget);
+app.post('/api/upload', upload.single('imageToUpload'), uploadImage)
 
 function createWidget(req, res) {
     var pageId = req.params.pageId;
@@ -90,15 +93,16 @@ function reorderWidget(req, res) {
 
 function findWidgetById(req, res) {
     var widgetId = req.params.widgetId;
+    res.send(getWidgetById(widgetId));
+}
 
+function getWidgetById(widgetId) {
     for (var i = 0; i < widgets.length; i++) {
         if (widgets[i]._id == widgetId) {
-            res.send(widgets[i]);
-            return;
+            return widgets[i];
         }
     }
-
-    res.send(null);
+    return null;
 }
 
 function updateWidget(req, res) {
@@ -127,4 +131,28 @@ function deleteWidget(req, res) {
     }
 
     res.send(null);
+}
+
+function uploadImage(req, res) {
+    var widgetId = req.body.widgetId;
+    var width = req.body.width;
+    var myFile = req.file;
+
+    var userId = req.body.userId;
+    var websiteId = req.body.websiteId;
+    var pageId = req.body.pageId;
+
+    var originalname = myFile.originalname; // file name on user's computer
+    var filename = myFile.filename; // new file name in upload folder
+    var path = myFile.path; // full path of uploaded file
+    var destination = myFile.destination; // folder where file is saved to
+    var size = myFile.size;
+    var mimetype = myFile.mimetype;
+
+    widget = getWidgetById(widgetId);
+    widget.url = '/uploads/' + filename;
+
+    var callbackUrl = '/assignment/#!/user/' + userId + '/website/' + websiteId + '/page/' + pageId + '/widget/' + widgetId;
+
+    res.redirect(callbackUrl);
 }
