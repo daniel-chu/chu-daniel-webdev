@@ -13,9 +13,8 @@
         function createNewWidgetWithType(widgetType) {
             widgetService.createWidget(vm.pageId, {
                 widgetType: widgetType
-            }).then(function(response) {
-                if (response.data) {
-                    var newWidget = response.data;
+            }).then(function(newWidget) {
+                if (newWidget) {
                     $location.url('/user/' + vm.userId + '/website/' + vm.websiteId + '/page/'
                         + vm.pageId + '/widget/' + newWidget._id);
                 }

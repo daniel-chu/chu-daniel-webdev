@@ -16,24 +16,24 @@
                 vm.alert = "Page must have a name.";
                 return;
             }
-            pageService.updatePage(vm.pageId, page).then(function(response) {
+            pageService.updatePage(vm.pageId, page).then(function() {
                 $location.url('/user/' + vm.userId + '/website/' + vm.websiteId + '/page');
             });
         }
 
         function deletePage() {
-            pageService.deletePage(vm.pageId).then(function(response) {
+            pageService.deletePage(vm.pageId).then(function() {
                 $location.url('/user/' + vm.userId + '/website/' + vm.websiteId + '/page');
             });
         }
 
         function init() {
-            pageService.findPageById(vm.pageId).then(function(response) {
-                vm.page = response.data;
+            pageService.findPageById(vm.pageId).then(function(page) {
+                vm.page = page;
             });
 
-            pageService.findPagesByWebsiteId(vm.websiteId).then(function(response) {
-                vm.pageList = response.data;
+            pageService.findPagesByWebsiteId(vm.websiteId).then(function(pageList) {
+                vm.pageList = pageList;
             });
         }
 

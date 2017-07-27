@@ -15,11 +15,14 @@
         vm.reorderElement = reorderElement;
 
         function convertYoutubeUrlToEmbedUrl(youtubeUrl) {
-            var embedBaseUrl = "https://www.youtube.com/embed/";
-            var urlArray = youtubeUrl.split('/');
-            var youtubeVideoCode = urlArray[urlArray.length - 1];
+            if (youtubeUrl) {
+                var embedBaseUrl = "https://www.youtube.com/embed/";
+                var urlArray = youtubeUrl.split('/');
+                var youtubeVideoCode = urlArray[urlArray.length - 1];
 
-            return embedBaseUrl + youtubeVideoCode;
+                return embedBaseUrl + youtubeVideoCode;
+            }
+            return "";
         }
 
         function trustUrl(url) {
@@ -35,8 +38,8 @@
         }
 
         function init() {
-            widgetService.findWidgetsByPageId(vm.pageId).then(function(response) {
-                vm.widgetList = response.data;
+            widgetService.findWidgetsByPageId(vm.pageId).then(function(widgetList) {
+                vm.widgetList = widgetList;
             });
         }
 

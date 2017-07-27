@@ -16,32 +16,24 @@
                 return;
             }
 
-            websiteService.updateWebsite(vm.websiteId, website).then(function(response) {
-                if (response.data) {
-                    $location.url('/user/' + vm.userId + '/website');
-                } else {
-                    vm.alert = "Error with deleting website.";
-                }
+            websiteService.updateWebsite(vm.websiteId, website).then(function() {
+                $location.url('/user/' + vm.userId + '/website');
             });
         }
 
         function deleteWebsite() {
-            websiteService.deleteWebsite(vm.websiteId).then(function(response) {
-                if (response.data) {
-                    $location.url('/user/' + vm.userId + '/website');
-                } else {
-                    vm.alert = "Error with deleting website.";
-                }
+            websiteService.deleteWebsite(vm.websiteId).then(function() {
+                $location.url('/user/' + vm.userId + '/website');
             });
         }
 
         function init() {
-            websiteService.findWebsiteById(vm.websiteId).then(function(response) {
-                vm.website = response.data;
+            websiteService.findWebsiteById(vm.websiteId).then(function(website) {
+                vm.website = website;
             });
 
-            websiteService.findWebsitesByUser(vm.userId).then(function(response) {
-                vm.websiteList = response.data;
+            websiteService.findWebsitesByUser(vm.userId).then(function(websiteList) {
+                vm.websiteList = websiteList;
             });
         }
 

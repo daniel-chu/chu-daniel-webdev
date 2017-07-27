@@ -13,8 +13,8 @@
                 vm.alert = "Website must have a name.";
                 return;
             }
-            websiteService.createWebsite(vm.userId, website).then(function(response) {
-                if (response.data) {
+            websiteService.createWebsite(vm.userId, website).then(function(newWebsite) {
+                if (newWebsite) {
                     $location.url('/user/' + vm.userId + '/website');
                 } else {
                     vm.alert = "Error with creating website.";
@@ -23,8 +23,8 @@
         }
 
         function init() {
-            websiteService.findWebsitesByUser(vm.userId).then(function(response) {
-                vm.websiteList = response.data;
+            websiteService.findWebsitesByUser(vm.userId).then(function(websiteList) {
+                vm.websiteList = websiteList;
             });
         }
 

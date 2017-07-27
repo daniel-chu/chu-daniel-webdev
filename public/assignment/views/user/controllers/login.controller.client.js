@@ -8,12 +8,8 @@
         vm.login = login;
 
         function login(userLoginInfo) {
-            var user;
-
             if (userLoginInfo && userLoginInfo.username && userLoginInfo.password) {
-                userService.findUserByCredentials(userLoginInfo.username, userLoginInfo.password).then(function(response) {
-                    user = response.data;
-
+                userService.findUserByCredentials(userLoginInfo.username, userLoginInfo.password).then(function(user) {
                     if (user) {
                         $location.url('/user/' + user._id);
                     } else {

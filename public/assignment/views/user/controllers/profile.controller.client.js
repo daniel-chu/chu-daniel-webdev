@@ -15,12 +15,8 @@
                 return;
             }
 
-            var existingUser;
-
             userService.findUserByUsername(user.username)
-                .then(function(response) {
-                    existingUser = response.data;
-
+                .then(function(existingUser) {
                     if (existingUser && existingUser._id !== vm.userId) {
                         vm.info = '';
                         vm.alert = 'Username taken already.';
@@ -29,7 +25,7 @@
 
                     return userService.updateUser(vm.userId, user);
                 })
-                .then(function(response) {
+                .then(function() {
                     vm.alert = '';
                     vm.info = 'Profile successfully updated.';;
                 });
@@ -37,8 +33,8 @@
 
         function init() {
             userService.findUserById(vm.userId)
-                .then(function(response) {
-                    vm.user = response.data;
+                .then(function(user) {
+                    vm.user = user;
                 });
         }
 

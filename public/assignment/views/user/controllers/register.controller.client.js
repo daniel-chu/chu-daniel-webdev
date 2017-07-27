@@ -16,10 +16,9 @@
                     lastName: userRegistrationInfo.lastName,
                     email: userRegistrationInfo.email,
                 };
-                userService.createUser(user).then(function(response) {
-                    user = response.data;
+                userService.createUser(user).then(function(newUser) {
                     if (user) {
-                        $location.url('/user/' + user._id);
+                        $location.url('/user/' + newUser._id);
                     } else {
                         vm.alert = "Error with registration.";
                     }
@@ -48,8 +47,8 @@
                 vm.alert = 'Username cannot be empty space.';
             }
 
-            userService.findUserByUsername(username).then(function(response) {
-                if (response.data) {
+            userService.findUserByUsername(username).then(function(existingUser) {
+                if (existingUser) {
                     vm.alert = 'Username already taken.';
                     return false;
                 }

@@ -13,20 +13,20 @@
         vm.deleteWidget = deleteWidget;
 
         function updateWidget(widget) {
-            widgetService.updateWidget(vm.widgetId, widget).then(function(response) {
+            widgetService.updateWidget(vm.widgetId, widget).then(function() {
                 $location.url('/user/' + vm.userId + '/website/' + vm.websiteId + '/page/' + vm.pageId + '/widget');
             });
         }
 
         function deleteWidget() {
-            widgetService.deleteWidget(vm.widgetId).then(function(response) {
+            widgetService.deleteWidget(vm.widgetId).then(function() {
                 $location.url('/user/' + vm.userId + '/website/' + vm.websiteId + '/page/' + vm.pageId + '/widget');
             });
         }
 
         function init() {
-            widgetService.findWidgetById(vm.widgetId).then(function(response) {
-                vm.widget = response.data;
+            widgetService.findWidgetById(vm.widgetId).then(function(widget) {
+                vm.widget = widget;
             });
         }
 

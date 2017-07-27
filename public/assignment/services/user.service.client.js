@@ -24,6 +24,8 @@
                 data: {
                     user: user
                 }
+            }).then(function(response) {
+                return response.data;
             });
         }
 
@@ -32,6 +34,8 @@
             return $http({
                 method: 'GET',
                 url: url
+            }).then(function(response) {
+                return response.data;
             });
         }
 
@@ -44,6 +48,8 @@
                     username: username,
                     password: password
                 }
+            }).then(function(response) {
+                return response.data;
             });
         }
 
@@ -55,6 +61,8 @@
                 params: {
                     username: username
                 }
+            }).then(function(response) {
+                return response.data;
             });
         }
 
@@ -66,6 +74,8 @@
                 data: {
                     user: user
                 }
+            }).then(function(response) {
+                return response.data;
             });
         }
 
@@ -74,6 +84,8 @@
             return $http({
                 method: 'DELETE',
                 url: url
+            }).then(function(response) {
+                return response.data;
             });
         }
     }

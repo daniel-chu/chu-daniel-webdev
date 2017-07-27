@@ -24,6 +24,8 @@
                 data: {
                     widget: widget
                 }
+            }).then(function(response) {
+                return response.data;
             });
         }
 
@@ -32,6 +34,8 @@
             return $http({
                 method: 'GET',
                 url: url
+            }).then(function(response) {
+                return response.data;
             });
         }
 
@@ -44,6 +48,8 @@
                     initial: initial,
                     final: final
                 }
+            }).then(function(response) {
+                return response.data;
             });
         }
 
@@ -52,6 +58,8 @@
             return $http({
                 method: 'GET',
                 url: url
+            }).then(function(response) {
+                return response.data;
             });
         }
 
@@ -63,6 +71,8 @@
                 data: {
                     widget: widget
                 }
+            }).then(function(response) {
+                return response.data;
             });
         }
 
@@ -71,6 +81,8 @@
             return $http({
                 method: 'DELETE',
                 url: url
+            }).then(function(response) {
+                return response.data;
             });
         }
     }
