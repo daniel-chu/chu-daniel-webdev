@@ -17,20 +17,22 @@
 
             var existingUser;
 
-            userService.findUserByUsername(user.username).then(function(response) {
-                existingUser = response.data;
+            userService.findUserByUsername(user.username)
+                .then(function(response) {
+                    existingUser = response.data;
 
-                if (existingUser && existingUser._id !== vm.userId) {
-                    vm.info = '';
-                    vm.alert = 'Username taken already.';
-                    return;
-                }
+                    if (existingUser && existingUser._id !== vm.userId) {
+                        vm.info = '';
+                        vm.alert = 'Username taken already.';
+                        return;
+                    }
 
-                userService.updateUser(vm.userId, user).then(function(response) {
+                    return userService.updateUser(vm.userId, user);
+                })
+                .then(function(response) {
                     vm.alert = '';
-                    vm.info = 'Profile successfully updated.';
+                    vm.info = 'Profile successfully updated.';;
                 });
-            });
         }
 
         function init() {
