@@ -8,6 +8,7 @@
         var api = {
             createWidget: createWidget,
             findWidgetsByPageId: findWidgetsByPageId,
+            reorderWidget: reorderWidget,
             findWidgetById: findWidgetById,
             updateWidget: updateWidget,
             deleteWidget: deleteWidget
@@ -31,6 +32,18 @@
             return $http({
                 method: 'GET',
                 url: url
+            });
+        }
+
+        function reorderWidget(pageId, initial, final) {
+            var url = '/api/page/' + pageId + '/widget'
+            return $http({
+                method: 'PUT',
+                url: url,
+                params: {
+                    initial: initial,
+                    final: final
+                }
             });
         }
 

@@ -12,6 +12,8 @@
         vm.trustUrl = trustUrl;
         vm.trustHtml = trustHtml;
 
+        vm.reorderElement = reorderElement;
+
         function convertYoutubeUrlToEmbedUrl(youtubeUrl) {
             var embedBaseUrl = "https://www.youtube.com/embed/";
             var urlArray = youtubeUrl.split('/');
@@ -26,6 +28,10 @@
 
         function trustHtml(html) {
             return $sce.trustAsHtml(html);
+        }
+
+        function reorderElement(initial, final) {
+            widgetService.reorderWidget(vm.pageId, initial, final);
         }
 
         function init() {

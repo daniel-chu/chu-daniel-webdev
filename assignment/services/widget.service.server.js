@@ -48,6 +48,7 @@ var widgets = [{
 
 app.post('/api/page/:pageId/widget', createWidget);
 app.get('/api/page/:pageId/widget', findWidgetsByPageId);
+app.put('/api/page/:pageId/widget', reorderWidget);
 app.get('/api/widget/:widgetId', findWidgetById);
 app.put('/api/widget/:widgetId', updateWidget);
 app.delete('/api/widget/:widgetId', deleteWidget);
@@ -75,6 +76,16 @@ function findWidgetsByPageId(req, res) {
     }
 
     return res.send(widgetsInPage);
+}
+
+function reorderWidget(req, res) {
+    var initial = req.query.initial;
+    var final = req.query.final;
+
+    var widgetBeingMoved = widgets.splice(initial, 1)[0];
+    widgets.splice(final, 0, widgetBeingMoved);
+
+    res.send(widgets);
 }
 
 function findWidgetById(req, res) {
