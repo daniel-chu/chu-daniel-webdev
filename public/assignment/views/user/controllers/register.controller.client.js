@@ -8,28 +8,30 @@
         vm.register = register;
 
         function register(userRegistrationInfo) {
-            if (isValidRegistrationInfo(userRegistrationInfo)) {
-                var user = {
-                    username: userRegistrationInfo.username,
-                    password: userRegistrationInfo.password,
-                    firstName: userRegistrationInfo.firstName,
-                    lastName: userRegistrationInfo.lastName,
-                    email: userRegistrationInfo.email,
-                };
-                userService.createUser(user).then(function(newUser) {
-                    if (user) {
-                        $location.url('/user/' + newUser._id);
-                    } else {
-                        vm.alert = "Error with registration.";
-                    }
-                });
-            }
+            isValidRegistrationInfo(userRegistrationInfo).then(function(valid) {
+                if (valid) {
+                    var user = {
+                        username: userRegistrationInfo.username,
+                        password: userRegistrationInfo.password,
+                        firstName: userRegistrationInfo.firstName,
+                        lastName: userRegistrationInfo.lastName,
+                        email: userRegistrationInfo.email,
+                    };
+                    userService.createUser(user).then(function(newUser) {
+                        if (user) {
+                            $location.url('/user/' + newUser._id);
+                        } else {
+                            vm.alert = "Error with registration.";
+                        }
+                    });
+                }
+            });
         }
 
         function isValidRegistrationInfo(userRegistrationInfo) {
             if (!userRegistrationInfo) {
                 vm.alert = 'Please fill in fields.';
-                return false;
+                return Promise.resolve(false);
             }
             var username = userRegistrationInfo.username;
             var password = userRegistrationInfo.password;
@@ -40,26 +42,26 @@
 
             if (!(username && password && verifyPassword)) {
                 vm.alert = 'Username, password, and verify password fields are required.';
-                return false;
+                return Promise.resolve(false);
             }
 
             if (username.trim().length === 0) {
                 vm.alert = 'Username cannot be empty space.';
+                return Promise.resolve(false);
             }
 
-            userService.findUserByUsername(username).then(function(existingUser) {
+            if (password !== verifyPassword) {
+                vm.alert = 'Passwords do not match.';
+                return Promise.resolve(false);
+            }
+
+            return userService.findUserByUsername(username).then(function(existingUser) {
                 if (existingUser) {
                     vm.alert = 'Username already taken.';
                     return false;
                 }
+                return true;
             });
-
-            if (password !== verifyPassword) {
-                vm.alert = 'Passwords do not match.';
-                return false;
-            }
-
-            return true;
         }
 
     }
