@@ -11,6 +11,8 @@
             $(element).sortable({
                 axis: 'y',
                 handle: '.drag-handler',
+                placeholder: 'dc-widget-placeholder',
+                forcePlaceholderSize: true,
                 start: function(event, ui) {
                     inital = ui.item.index();
                 },

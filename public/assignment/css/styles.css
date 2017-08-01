@@ -28,6 +28,11 @@ input {
     margin: 5px;
 }
 
+.dc-widget-placeholder {
+    background-color: lightgray;
+    border: 1px solid darkgrey;
+}
+
 .dc-widget-container {
     width: auto;
     position: relative;
