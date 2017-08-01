@@ -29,7 +29,7 @@
 
     <form action="/api/upload" method="post" enctype="multipart/form-data">
         <label for="imageToUpload">Upload</label>
-        <input id="imageToUpload" name="imageToUpload" type="file" class="form-control"/>
+        <input id="imageToUpload" name="imageToUpload" type="file" class="form-control" required/>
         <input name="width" value="{{model.widget.width}}" style="display: none"/>
         <input name="userId" value="{{model.userId}}" style="display: none"/>
         <input name="websiteId" value="{{model.websiteId}}" style="display: none"/>
@@ -39,6 +39,12 @@
             <button type="submit" class="btn btn-block btn-primary">Upload Image</button>
         </div>
     </form>
+
+    <div class="dc-button-container">
+        <a class="btn btn-block btn-info"
+           href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{model.widgetId}}/search"
+           role="button">Flickr Image Search</a>
+    </div>
 
     <div class="dc-button-container">
         <a class="btn btn-block btn-danger"

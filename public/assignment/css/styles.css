@@ -24,6 +24,10 @@ input {
     margin-top: 10px;
 }
 
+.dc-flickr-image {
+    margin: 5px;
+}
+
 .dc-widget-container {
     width: auto;
     position: relative;
