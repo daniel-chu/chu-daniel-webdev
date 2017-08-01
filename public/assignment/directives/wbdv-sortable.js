@@ -10,6 +10,7 @@
 
             $(element).sortable({
                 axis: 'y',
+                handle: '.drag-handler',
                 start: function(event, ui) {
                     inital = ui.item.index();
                 },
