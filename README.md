@@ -10,5 +10,5 @@ This repository was created as part of the web dev course requirements, so profe
 
 ## Links
 * [Hosted Environment](https://chu-daniel-webdev.herokuapp.com/)
-* [Project](http://chu-daniel-webdev.herokuapp.com/project/)
+* [Project](http:/recipe-tracker-webdev.herokuapp.com/)
 * [Assignment](http://chu-daniel-webdev.herokuapp.com/assignment/)
