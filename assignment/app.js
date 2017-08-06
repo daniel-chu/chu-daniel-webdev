@@ -1,4 +1,6 @@
-require("./services/user.service.server.js");
-require("./services/website.service.server.js");
-require("./services/page.service.server.js");
-require("./services/widget.service.server.js");
+var mongoose = require("./database");
+
+require("./services/user.service.server");
+require("./services/website.service.server");
+require("./services/page.service.server");
+require("./services/widget.service.server");
