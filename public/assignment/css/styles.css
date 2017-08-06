@@ -62,16 +62,13 @@ input {
     border: none;
 }
 
-.video-container {
+.youtube-widget {
     position: relative;
-    padding-bottom: 56.25%;
+    padding-bottom: 56.25%; /* 16:9 */
     height: 0;
-    overflow: hidden;
 }
 
-.video-container iframe,
-.video-container object,
-.video-container embed {
+.youtube-widget iframe {
     position: absolute;
     top: 0;
     left: 0;
