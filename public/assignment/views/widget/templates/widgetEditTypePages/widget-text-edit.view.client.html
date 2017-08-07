@@ -1,0 +1,47 @@
+<div class="container-fluid">
+    <label for="name">Name</label>
+    <input id="name"
+           name="name"
+           class="form-control"
+           placeholder="Widget Name"
+           ng-model="model.widget.name"/>
+
+    <label for="text">Text</label>
+    <input id="text"
+           name="text"
+           class="form-control"
+           placeholder="Text"
+           ng-model="model.widget.text"/>
+
+    <label for="rows">Rows</label>
+    <input id="rows"
+           name="rows"
+           class="form-control"
+           placeholder="Rows"
+           type="number"
+           ng-model="model.widget.rows"/>
+
+    <label for="placeholder">Placeholder</label>
+    <input id="placeholder"
+           name="placeholder"
+           class="form-control"
+           placeholder="Placeholder Text"
+           ng-model="model.widget.placeholder"/>
+
+    <label class="checkbox-inline">
+        <input id="formatted"
+           name="formatted"
+           class="checkbox-inline"
+           placeholder="Formatted"
+           type="checkbox"
+           ng-model="model.widget.formatted">
+           <span class="dc-bold-text">Formatted (displays text editor)</span>
+    </label>
+
+
+    <div class="dc-button-container">
+        <a class="btn btn-block btn-danger"
+           ng-click="model.deleteWidget()"
+           role="button">Delete</a>
+    </div>
+</div>

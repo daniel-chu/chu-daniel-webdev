@@ -20,6 +20,10 @@ input {
     background: #3498db;
 }
 
+.dc-bold-text {
+    font-weight: bold;
+}
+
 .dc-button-container {
     margin-top: 10px;
 }
@@ -60,6 +64,14 @@ input {
 .list-group > .list-group-item {
     box-shadow: none;
     border: none;
+}
+
+div[text-angular-toolbar] {
+    margin: 7px 0;
+}
+
+div[text-angular-toolbar] .btn-group {
+    margin: 4px;
 }
 
 .youtube-widget {

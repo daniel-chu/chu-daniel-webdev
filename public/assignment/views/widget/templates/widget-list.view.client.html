@@ -37,6 +37,10 @@
                     <ng-include src="'views/widget/templates/widgetTypes/widget-html-render.view.client.html'">
                     </ng-include>
                 </div>
+                <div ng-switch-when="TEXT">
+                    <ng-include src="'views/widget/templates/widgetTypes/widget-text-render.view.client.html'">
+                    </ng-include>
+                </div>
             </div>
             <div class="dc-widget-button-overlay">
                 <a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{widget._id}}">
