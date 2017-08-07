@@ -12,42 +12,46 @@ PageModel.deletePage = deletePage;
 PageModel.addWidget = addWidget;
 PageModel.removeWidget = removeWidget;
 
+PageModel.getWidgetListForPage = getWidgetListForPage;
+
 module.exports = PageModel;
 
 function createPage(websiteId, page) {
     page._website = websiteId;
-    return PageModel.create(page).then(function(newPage) {
-        return WebsiteModel.addPage(newPage._website, newPage._id);
+    return PageModel.create(page).then(function (newPage) {
+        return WebsiteModel.addPage(newPage._website, newPage._id).then(function() {
+            return newPage;
+        });
     });
 }
 
 function findAllPagesForWebsite(websiteId) {
-    return PageModel.find({ _website: websiteId });
+    return PageModel.find({_website: websiteId});
 }
 
 function findPageById(pageId) {
-    return PageModel.findOne({ _id: pageId });
+    return PageModel.findOne({_id: pageId});
 }
 
 function updatePage(pageId, page) {
-    return PageModel.updateOne({ _id: pageId }, { $set: page });
+    return PageModel.updateOne({_id: pageId}, {$set: page});
 }
 
 function deletePage(pageId) {
-    return PageModel.findOneAndRemove({ _id: pageId }).then(function(deletedPage) {
+    return PageModel.findOneAndRemove({_id: pageId}).then(function (deletedPage) {
         return WebsiteModel.removePage(deletedPage._website, deletedPage._id);
     });
 }
 
 function addWidget(pageId, widgetId) {
-    return PageModel.findOne({ _id: pageId }).then(function(page) {
-        page.widgets.push(pageId);
-        return Page.save();
+    return PageModel.findOne({_id: pageId}).then(function (page) {
+        page.widgets.push(widgetId);
+        return page.save();
     });
 }
 
 function removeWidget(pageId, widgetId) {
-    return PageModel.findOne({ _id: pageId }).then(function(page) {
+    return PageModel.findOne({_id: pageId}).then(function (page) {
         var widgetIndex = page.widgets.indexOf(widgetId);
         page.widgets.splice(widgetIndex, 1);
         return page.save();
@@ -56,9 +60,9 @@ function removeWidget(pageId, widgetId) {
 
 function getWidgetListForPage(pageId) {
     return PageModel
-        .findOne({ _id: pageId })
+        .findOne({_id: pageId})
         .populate('widgets')
-        .exec(function(page) {
+        .exec().then(function(page) {
             return page.widgets;
         });
 }

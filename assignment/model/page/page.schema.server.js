@@ -1,5 +1,7 @@
 var mongoose = require('mongoose');
 
+// TODO consider using embedded schema
+
 var PageSchema = mongoose.Schema({
     _website: { type: mongoose.Schema.Types.ObjectId, ref: 'WebsiteModel' },
     name: { type: String, required: true },

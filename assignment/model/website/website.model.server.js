@@ -17,7 +17,9 @@ module.exports = WebsiteModel;
 function createWebsiteForUser(userId, website) {
     website._user = userId;
     return WebsiteModel.create(website).then(function(newWebsite) {
-        return UserModel.addWebsite(newWebsite._user, newWebsite._id);
+        return UserModel.addWebsite(newWebsite._user, newWebsite._id).then(function() {
+            return newWebsite;
+        });
     });
 }
 

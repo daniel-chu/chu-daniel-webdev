@@ -16,7 +16,9 @@ module.exports = WidgetModel;
 function createWidget(pageId, widget) {
     widget._page = pageId;
     return WidgetModel.create(widget).then(function(newWidget) {
-        return PageModel.addWidget(newWidget._page, newWidget._id);
+        return PageModel.addWidget(newWidget._page, newWidget._id).then(function() {
+            return newWidget;
+        });
     });
 }
 
@@ -40,7 +42,7 @@ function deleteWidget(widgetId) {
 
 function reorderWidget(pageId, start, end) {
     return PageModel.findOne({ _id: pageId }).then(function(page) {
-        var widgetIdToMove = page.widgets.splice(start)[0];
+        var widgetIdToMove = page.widgets.splice(start, 1)[0];
         page.widgets.splice(end, 0, widgetIdToMove);
         return page.save();
     });
