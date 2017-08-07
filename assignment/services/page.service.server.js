@@ -49,7 +49,7 @@ function updatePage(req, res) {
 function deletePage(req, res) {
     var pageId = req.params.pageId;
 
-    PageMode.deletePage(pageId).then(function(status) {
+    PageModel.deletePage(pageId).then(function(status) {
         res.sendStatus(204);
     });
 }
