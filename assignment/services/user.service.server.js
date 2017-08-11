@@ -1,6 +1,6 @@
 var app = require('../../express');
 var UserModel = require('../model/user/user.model.server.js');
-
+var bcrypt = require('bcryptjs');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var auth = authorized;
@@ -37,6 +37,8 @@ function authorized(req, res, next) {
 
 function createUser(req, res) {
     var user = req.body.user;
+    var salt = bcrypt.genSaltSync(10);
+    user.password = bcrypt.hashSync(user.password, salt);
 
     UserModel.createUser(user)
         .then(function (newUser) {
@@ -57,7 +59,7 @@ function findUserByUsername(req, res) {
 function localStrategy(username, password, done) {
     UserModel.findUserByUsername(username, password)
         .then(function (user) {
-                if (user && password === user.password) {
+                if (user && bcrypt.compareSync(password, user.password)) {
                     return done(null, user);
                 }
                 return done(null, false);
