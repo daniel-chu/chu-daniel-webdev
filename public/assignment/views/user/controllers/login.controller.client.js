@@ -9,9 +9,9 @@
 
         function login(userLoginInfo) {
             if (userLoginInfo && userLoginInfo.username && userLoginInfo.password) {
-                userService.findUserByCredentials(userLoginInfo.username, userLoginInfo.password).then(function(user) {
+                userService.login(userLoginInfo.username, userLoginInfo.password).then(function(user) {
                     if (user) {
-                        $location.url('/user/' + user._id);
+                        $location.url('/user');
                     } else {
                         vm.alert = 'Invalid username/password';
                     }

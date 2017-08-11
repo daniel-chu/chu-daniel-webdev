@@ -19,7 +19,7 @@
                     };
                     userService.createUser(user).then(function(newUser) {
                         if (user) {
-                            $location.url('/user/' + newUser._id);
+                            $location.url('/user');
                         } else {
                             vm.alert = "Error with registration.";
                         }

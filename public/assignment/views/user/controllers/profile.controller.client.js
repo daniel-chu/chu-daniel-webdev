@@ -3,10 +3,11 @@
         .module('WebAppMaker')
         .controller('profileController', profileController);
 
-    function profileController($routeParams, userService) {
+    function profileController($routeParams, $location, userService, userLoggedIn) {
         var vm = this;
-        vm.userId = $routeParams['uid'];
+        vm.userId = userLoggedIn._id;
         vm.updateProfile = updateProfile;
+        vm.logout = logout;
 
         function updateProfile(user) {
             if (!(user && user.username && user.username.trim().length > 0)) {
@@ -27,8 +28,15 @@
                 })
                 .then(function() {
                     vm.alert = '';
-                    vm.info = 'Profile successfully updated.';;
+                    vm.info = 'Profile successfully updated.';
+                    $location.url('/user');
                 });
+        }
+
+        function logout() {
+            userService.logout().then(function() {
+                $location.url('/login');
+            });
         }
 
         function init() {

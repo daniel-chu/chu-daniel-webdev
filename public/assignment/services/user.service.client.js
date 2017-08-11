@@ -7,8 +7,10 @@
 
         var api = {
             createUser: createUser,
+            checkLogin: checkLogin,
             findUserById: findUserById,
-            findUserByCredentials: findUserByCredentials,
+            login: login,
+            logout: logout,
             findUserByUsername: findUserByUsername,
             updateUser: updateUser,
             deleteUser: deleteUser
@@ -29,6 +31,16 @@
             });
         }
 
+        function checkLogin() {
+            var url = '/api/checkLogin';
+            return $http({
+                method: 'GET',
+                url: url
+            }).then(function(response) {
+                return response.data;
+            });
+        }
+
         function findUserById(userId) {
             var url = '/api/user/' + userId;
             return $http({
@@ -39,15 +51,25 @@
             });
         }
 
-        function findUserByCredentials(username, password) {
-            var url = '/api/user';
+        function login(username, password) {
+            var url = '/api/login';
             return $http({
-                method: 'GET',
+                method: 'POST',
                 url: url,
-                params: {
+                data: {
                     username: username,
                     password: password
                 }
+            }).then(function(response) {
+                return response.data;
+            });
+        }
+
+        function logout() {
+            var url = '/api/logout';
+            return $http({
+                method: 'POST',
+                url: url
             }).then(function(response) {
                 return response.data;
             });
