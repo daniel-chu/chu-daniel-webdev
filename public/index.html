@@ -15,6 +15,7 @@
     <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
     <!-- Plugin CSS -->
     <link href="homepage/vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+    <link href="homepage/vendor/flexslider/css/flexslider.css" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="homepage/css/creative.min.css" rel="stylesheet">
 </head>
@@ -22,25 +23,24 @@
 <body id="page-top">
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-      <a class="navbar-brand" href="#page-top">Daniel Chu - Web Development Home</a>
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="#project">Project</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#assignment">Assignment</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#github">Github</a>
-          </li>
-        </ul>
-      </div>
+        <a class="navbar-brand" href="#page-top">Daniel Chu - Web Development Home</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#project">Project</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#assignment">Assignment</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#github">Github</a>
+                </li>
+            </ul>
+        </div>
     </nav>
-
     <header class="masthead">
         <div class="header-content">
             <div class="header-content-inner">
@@ -50,7 +50,6 @@
             </div>
         </div>
     </header>
-
     <section class="bg-primary" id="project">
         <div class="container">
             <div class="row">
@@ -58,6 +57,22 @@
                     <h1 class="section-heading text-white">RecipEat</h1>
                     <p class="section-heading text-white">Final Project</p>
                     <hr class="light">
+                    <div class="flexslider">
+                        <ul class="slides">
+                            <li>
+                                <img src="homepage/img/websiteScreenshots/recipeat1.jpg" />
+                            </li>
+                            <li>
+                                <img src="homepage/img/websiteScreenshots/recipeat2.jpg" />
+                            </li>
+                            <li>
+                                <img src="homepage/img/websiteScreenshots/recipeat3.jpg" />
+                            </li>
+                            <li>
+                                <img src="homepage/img/websiteScreenshots/recipeat4.jpg" />
+                            </li>
+                        </ul>
+                    </div>
                     <p class="text-faded">A social network where you can find, share, and comment on recipes with other users.</p>
                     <a class="btn btn-default btn-xl sr-button" href="http://recip-eat.herokuapp.com">Check it out</a>
                     <a class="btn btn-default btn-xl sr-button" href="https://github.com/daniel-chu/recipeat">
@@ -67,7 +82,6 @@
             </div>
         </div>
     </section>
-
     <section class="bg-info" id="assignment">
         <div class="container">
             <div class="row">
@@ -75,7 +89,7 @@
                     <h1 class="section-heading text-white">Web App Maker</h1>
                     <p class="section-heading text-white">Course Assignment</p>
                     <hr class="light">
-                    <p class="text-faded">A web app that can manage and create websites for you.</p>
+                    <p class="text-faded">A web app that can manage and create websites for you. Not fully functional.</p>
                     <a class="btn btn-default btn-xl sr-button" href="/assignment">Check it out</a>
                     <a class="btn btn-default btn-xl sr-button" href="https://github.com/daniel-chu/chu-daniel-webdev">
                         <span class="fa fa-github"></span> Repository on Github
@@ -84,16 +98,13 @@
             </div>
         </div>
     </section>
-
     <div class="call-to-action bg-dark" id="github">
-      <div class="container text-center">
-        <h1>Github</h1>
-        <p>Find the rest of my work on my github below!</p>
-        <a class="btn btn-default btn-xl sr-button" href="https://github.com/daniel-chu"><span class="fa fa-github"></span> Github</a>
-      </div>
+        <div class="container text-center">
+            <h1>Github</h1>
+            <p>Find the rest of my work on my github below!</p>
+            <a class="btn btn-default btn-xl sr-button" href="https://github.com/daniel-chu"><span class="fa fa-github"></span> Github</a>
+        </div>
     </div>
-
-
     <!-- Bootstrap core JavaScript -->
     <script src="homepage/vendor/jquery/jquery.min.js"></script>
     <script src="homepage/vendor/popper/popper.min.js"></script>
@@ -102,8 +113,11 @@
     <script src="homepage/vendor/jquery-easing/jquery.easing.min.js"></script>
     <script src="homepage/vendor/scrollreveal/scrollreveal.min.js"></script>
     <script src="homepage/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+    <script src="homepage/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+    <script src="homepage/vendor/flexslider/js/jquery.flexslider-min.js"></script>
     <!-- Custom scripts for this template -->
     <script src="homepage/js/creative.min.js"></script>
+    <script src="homepage/js/flexslider.js"></script>
 </body>
 
 </html>
